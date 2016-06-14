@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ibititec.tvalterosa.GruposActivity"
+    tools:showIn="@layout/activity_grupos"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/chave_A"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CHAVE A"
+        android:paddingTop="10dp"
+        />
+    <TextView
+        android:id="@+id/chave_B"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CHAVE B"
+        android:paddingTop="10dp"/>
+    <TextView
+        android:id="@+id/chave_C"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CHAVE C"
+        android:paddingTop="10dp"/>
+    <TextView
+        android:id="@+id/chave_D"
+        android:textSize="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CHAVE D"
+        android:paddingTop="10dp"/>
+
+</LinearLayout>

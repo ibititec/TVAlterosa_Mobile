@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">TV Alterosa SUB 20</string>
+    <string name="msg_erro_json">Erro baixando JSON: %s</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_primeira_divisao">SUB 20</string>
+    <string name="title_activity_primeira_divisao_tabela">Primeira Divisao Tabela</string>
+    <string name="url_pdtabela_A">http://52.37.37.207:98/Admin/Partida/ObterTabelaJson</string>
+    <string name="url_pdtabela_B">http://52.37.37.207:98/Admin/Partida/ObterTabelaJson</string>
+    <string name="url_pdtabela_C">http://52.37.37.207:98/Admin/Partida/ObterTabelaJson</string>
+    <string name="url_pdtabela_D">http://52.37.37.207:98/Admin/Partida/ObterTabelaJson</string>
+
+    <string name="url_pdclassificacao_A">http://52.37.37.207:98/Campeonato/ObterClassificacaoJson</string>
+    <string name="url_pdclassificacao_B">http://52.37.37.207:98/Campeonato/ObterClassificacaoJson</string>
+    <string name="url_pdclassificacao_C">http://52.37.37.207:98/Campeonato/ObterClassificacaoJson</string>
+    <string name="url_pdclassificacao_D">http://52.37.37.207:98/Campeonato/ObterClassificacaoJson</string>
+
+    <string name="url_sdtabela">http://52.37.37.207:98/Admin/Partida/ObterTabelaJsonSD</string>
+    <string name="url_sdclassificacao">http://52.37.37.207:98/Campeonato/ObterClassificacaoJson</string>
+    <string name="title_activity_adapter_rodada">AdapterRodada</string>
+    <string name="title_activity_sobre">Sobre a Ibititec</string>
+    <string name="title_activity_login_usuario">Login Usuário</string>
+    <string name="title_activity_cadastro_usuario">Cadastro Usuário</string>
+
+    <string name="url_cadastrar_usuario">http://52.37.37.207:98/Admin/Usuario/CadastrarJson</string>
+    <string name="url_login_usuario">http://52.37.37.207:98/Admin/AdminHome/LoginJson</string>
+    <string name="title_activity_bolao_principal">Bolão</string>
+    <string name="title_activity_classificacao">Classificação Bolão</string>
+    <string name="title_activity_paplite">Palpite por Partida</string>
+    <string name="title_activity_palpite_por_jogo">Partidas Liberadas</string>
+
+    <!--Artilharia-->
+
+    <string name="url_pdartilharia">http://52.37.37.207:98/Campeonato/ObterArtilhariaJson</string>
+    <string name="url_sdartilharia">http://52.37.37.207:98/Campeonato/ObterArtilhariaJson</string>
+    <string name="sendToken">http://52.37.37.207:98/Campeonato/SendToken</string>
+    <string name="url_imagens">http://52.37.37.207:98/Campeonato/Image</string>
+
+    <!--BOLAO-->
+    <string name="url_pdclassificacaobolao">http://52.37.37.207:98/Admin/Bolao/VencedorRodadaJson</string>
+    <string name="url_sdclassificacaobolao">http://52.37.37.207:98/Admin/Bolao/VencedorRodadaJson</string>
+    <string name="url_jogos_bolao">http://52.37.37.207:98/Admin/Bolao/ParticiparJson</string>
+
+    <string name="url_jogos_rodada">http://52.37.37.207:98/Admin/Partida/ListarUltimaRodadaJson</string>
+    <string name="url_sd_jogos_bolao">http://52.37.37.207:98/Admin/Bolao/getSDJogosBolao</string>
+    <string name="url_salvar_palpite_bolao">http://52.37.37.207:98/Admin/Bolao/SalvarJson</string>
+    <string name="url_partida_ao_vivo">http://52.37.37.207:98/Admin/Partida/AoVivo</string>
+    <string name="title_activity_fees_noticias">Feed Noticias</string>
+    <string name="url_feed_noticias">http://52.37.37.207:98/Admin/Campeonato/Noticias</string>
+    <string name="url_feed_adicionar_noticias">http://52.37.37.207:98/Admin/Campeonato/AdicionarNoticia</string>
+    <string name="url_comentario_adcionar">http://52.37.37.207:98/Admin/Partida/ComentarJson</string>
+    <string name="title_activity_regras">REGULAMENTO</string>
+
+    <string name="regulamento">
+        <![CDATA[
+            <p><b>I: Premiação</b></p>
+            <br><p>** Os prêmios serão anunciados em breve.</p></br>
+            <br><p>** O usuário pode participar dos dois bolões."</p></br>
+            <p><b>II: Pontuação</b></p>
+            <br><p>** Todos os membros iniciam com 0 (zero) pontos.</p></br>
+            <br><p>** 1 ponto para quem acertar o vencedor da partida ou empate.</p></br>
+            <br><p>** 2 pontos para quem acertar o placar da partida.</p></br>
+            <br><p>** 3 pontos para quem acertar o placar da partida com mais de três gols para o vencedor.</p></br>
+            <br><p></p></br>
+            <br><p></p></br>
+            <p><b>III: Critérios de desempate</b></p>
+            <br><p>** Maior numero de pontos.</p></br>
+            <br><p>** Maior numero de rodadas com participação.</p></br>
+            <br><p>** Maior numero de rodadas como vencedor.</p></br>
+            <br><p>** Maior numero de acertos numa mesma rodada.</p></br>
+            <br><p>** Membro cadastrado a mais tempo no Fórum.</p></br>
+            <br><p>** As mensagens poderão ser enviadas até as 09:00 horas (horário de Brasilia) do dia do primeiro jogo de cada rodada.</p></br>
+            <br><p>** Para efeito de acerto nos palpites serão considerados apenas os resultados finais obtidos em campo, sendo totalmente descartadas as mudanças de resultados obtidas na Justiça Desportiva e/ou Justiça Comum ou por qualquer outro meio.</p></br>
+            <br><p>** O Palpite de cada usuário só poderá ser visualizado pelo próprio usuário.</p></br>
+            <br><p>** Os membros podem iniciar sua participação em qualquer rodada.</p></br>
+            ]]>
+    </string>
+    <string name="title_activity_grupos">GruposActivity</string>
+</resources>
