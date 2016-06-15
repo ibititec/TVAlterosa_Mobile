@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity
             PDCLASSIFICACAOBOLAO = "pdclassificacaobolao", SDCLASSIFICACAOBOLAO = "sdclassificacaobolao",
             PDJOGOSBOLAO = "pdjogosbolao", SDJOGOSBOLAO = "sdjogosbolao", USUARIO = "usuario", PDJOGOSRODADA = "pdjogosRODADA", SDJOGOSRODADA = "sdjogosRODADA",
             TABELA_CHAVE_A = "TABELA_CHAVE_A",TABELA_CHAVE_B = "TABELA_CHAVE_B",TABELA_CHAVE_C = "TABELA_CHAVE_C",TABELA_CHAVE_D = "TABELA_CHAVE_D",
-            CLASSIFICACAO_A = "CLASSIFICACAO_A", CLASSIFICACAO_B = "CLASSIFICACAO_B", CLASSIFICACAO_C = "CLASSIFICACAO_C", CLASSIFICACAO_D = "CLASSIFICACAO_D" ;
+            CLASSIFICACAO_A = "CLASSIFICACAO_A", CLASSIFICACAO_B = "CLASSIFICACAO_B", CLASSIFICACAO_C = "CLASSIFICACAO_C", CLASSIFICACAO_D = "CLASSIFICACAO_D",
+            PROXIMA_RODADA = "PROXIMA_RODADA";
 
     public static final String TAG = "CAMPEONATOLD";
     public static final String PATH_FOTOS = "http://52.37.37.207:94/Admin/Time/Image?nomeimagem=";
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity
 
         //IDENTIFICACAO DOS OBJETOS DE LAYOUT
         btnPrimeiraDivisao = (ImageButton) findViewById(R.id.btnPrimeiraDivisao);
-        btnSegundaDivisao = (ImageButton) findViewById(R.id.btnSegundaDivisao);
+        //btnSegundaDivisao = (ImageButton) findViewById(R.id.btnSegundaDivisao);
         btnNoticias = (ImageButton) findViewById(R.id.btnNoticias);
 
         txtPrimeiraDivisao = (TextView) findViewById(R.id.txtPrimeiraDivisao);
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity
                     donwnloadFromUrl(TABELA_CHAVE_C, getString(R.string.url_pdtabela_C),  "{\"id\": \"3\"}");
                     donwnloadFromUrl(TABELA_CHAVE_D, getString(R.string.url_pdtabela_D),  "{\"id\": \"4\"}");
 
-                    donwnloadFromUrl(PDARTILHARIA, getString(R.string.url_pdartilharia), "{\"id\": \"2\"}");
+                    donwnloadFromUrl(PDARTILHARIA, getString(R.string.url_pdartilharia), "");
 
                     donwnloadFromUrl(CLASSIFICACAO_A, getString(R.string.url_pdclassificacao_A), "{\"id\": \"1\"}");
                     donwnloadFromUrl(CLASSIFICACAO_B, getString(R.string.url_pdclassificacao_B), "{\"id\": \"2\"}");
@@ -193,13 +194,13 @@ public class MainActivity extends AppCompatActivity
                     startarActivity("primeira");
                 }
             });
-
-            btnSegundaDivisao.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startarActivity("segunda");
-                }
-            });
+//
+//            btnSegundaDivisao.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    startarActivity("segunda");
+//                }
+//            });
 
             btnNoticias.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -215,12 +216,12 @@ public class MainActivity extends AppCompatActivity
                 }
             });
 
-            txtSegundaDivisao.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startarActivity("segunda");
-                }
-            });
+//            txtSegundaDivisao.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    startarActivity("segunda");
+//                }
+//            });
 
             txtNoticias.setOnClickListener(new View.OnClickListener() {
                 @Override

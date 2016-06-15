@@ -74,7 +74,6 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
         try {
             Intent intent = new Intent();
             intent.putExtra("divisao", divisao);
-
             // add data to Intent
             setResult(PrimeiraDivisaoTabelaActivity.RESULT_OK, intent);
             Appodeal.show(this, Appodeal.NATIVE);
@@ -128,6 +127,9 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
                         atualizarArtilhariaSegundaDivisao();
                     }
                     break;
+                case "ProximaRodada":
+                    atualizarTabelaChaveProximaRodada();
+                    break;
             }
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: executarAcoes PrimeiraDivisaoTabela: " + ex.getMessage());
@@ -154,7 +156,7 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
         try {
             cabecalhoLayout = (LinearLayout) findViewById(R.id.cabecalho_artilahria);
             cabecalhoLayout.setVisibility(View.VISIBLE);
-            this.setTitle("Artilharia 1ª Divisão");
+            this.setTitle("Artilharia Geral");
             tabela = JsonHelper.leJsonBancoLocal(MainActivity.PDARTILHARIA, this);
             List<Artilharia> listArtilharia = JsonHelper.getList(tabela, Artilharia[].class);
             AdapterArtilharia adapterArtilharia = new AdapterArtilharia(this, listArtilharia);
@@ -164,6 +166,7 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
             Log.i(MainActivity.TAG, "Erro ao preencher listView: " + ex.getMessage());
         }
     }
+
 
     private void atualizarClassificacaoA() {
         try {
@@ -225,7 +228,18 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
             Log.i(MainActivity.TAG, "Erro ao preencher listView: " + ex.getMessage());
         }
     }
-
+    private void atualizarTabelaChaveProximaRodada() {
+        try {
+            this.setTitle("Próxima Rodada");
+            String tabela = JsonHelper.leJsonBancoLocal(MainActivity.PROXIMA_RODADA, this);
+            List<Rodada> listRodada = JsonHelper.getList(tabela, Rodada[].class);
+            AdapterRodada adapterRodada = new AdapterRodada(this, listRodada, divisao, funcionalidade);
+            lvTabela.setAdapter(adapterRodada);
+            UIHelper.setListViewHeightBasedOnChildren(lvTabela);
+        } catch (Exception ex) {
+            Log.i(MainActivity.TAG, "Erro ao preencher listView PROXIMA_RODADA: " + ex.getMessage());
+        }
+    }
     private void atualizarTabelaChaveA() {
         try {
             this.setTitle("Tabela Chave A");

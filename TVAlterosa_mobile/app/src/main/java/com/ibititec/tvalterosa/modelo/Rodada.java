@@ -5,15 +5,34 @@ package com.ibititec.tvalterosa.modelo;
  */
 public class Rodada {
     private String Numero;
-    private String Data ;
-    private String Campo ;
+    private String Data;
+    private String Campo;
     private String Cidade;
-    private String HoraJogo1 ;
-    private String Jogo1 ;
-    private String HoraJogo2 ;
-    private String Jogo2 ;
-    private Partida Partida1 ;
-    private Partida Partida2 ;
+    private String HoraJogo1;
+    private String Jogo1;
+    private String HoraJogo2;
+    private String Jogo2;
+    private Partida Partida1;
+    private Partida Partida2;
+    private String NomeTimeMandante;
+    private String NomeTimeVisitante;
+
+    public String getNomeTimeMandante() {
+        return NomeTimeMandante;
+    }
+
+    public void setNomeTimeMandante(String nomeTimeMandante) {
+        NomeTimeMandante = nomeTimeMandante;
+    }
+
+    public String getNomeTimeVisitante() {
+        return NomeTimeVisitante;
+    }
+
+    public void setNomeTimeVisitante(String nomeTimeVisitante) {
+        NomeTimeVisitante = nomeTimeVisitante;
+    }
+
 
     public String getCidade() {
         return Cidade;
@@ -22,6 +41,7 @@ public class Rodada {
     public void setCidade(String cidade) {
         Cidade = cidade;
     }
+
     public Partida getPartida1() {
         return Partida1;
     }

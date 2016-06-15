@@ -32,7 +32,7 @@
 
     <!--Artilharia-->
 
-    <string name="url_pdartilharia">http://52.37.37.207:98/Campeonato/ObterArtilhariaJson</string>
+    <string name="url_pdartilharia">http://52.37.37.207:98/Campeonato/ObterArtilhariaGeralJson</string>
     <string name="url_sdartilharia">http://52.37.37.207:98/Campeonato/ObterArtilhariaJson</string>
     <string name="sendToken">http://52.37.37.207:98/Campeonato/SendToken</string>
     <string name="url_imagens">http://52.37.37.207:98/Campeonato/Image</string>
@@ -50,6 +50,7 @@
     <string name="url_feed_noticias">http://52.37.37.207:98/Admin/Campeonato/Noticias</string>
     <string name="url_feed_adicionar_noticias">http://52.37.37.207:98/Admin/Campeonato/AdicionarNoticia</string>
     <string name="url_comentario_adcionar">http://52.37.37.207:98/Admin/Partida/ComentarJson</string>
+    <string name="url_proximarodada">http://52.37.37.207:98/Admin/Partida/ListarProximaRodadaJson</string>
     <string name="title_activity_regras">REGULAMENTO</string>
 
     <string name="regulamento">
@@ -76,5 +77,5 @@
             <br><p>** Os membros podem iniciar sua participação em qualquer rodada.</p></br>
             ]]>
     </string>
-    <string name="title_activity_grupos">GruposActivity</string>
+    <string name="title_activity_grupos">Chaves</string>
 </resources>

@@ -44,6 +44,29 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btnProximaRodada"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/Transparente"
+                android:src="@drawable/pdtabela" />
+
+            <TextView
+                android:id="@+id/txtProximaRodada"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PROX. RODADA"
+                android:paddingLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingTop="20dp">
 
@@ -88,38 +111,6 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="20dp"
                 android:layout_weight="1.15" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="20dp">
-
-
-            <ImageButton
-                android:id="@+id/btnNoticias"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:background="@color/Transparente"
-                android:src="@drawable/noticias" />
-
-            <TextView
-                android:id="@+id/txtNoticias"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="Notícias"
-                android:textAlignment="center"
-                android:textSize="24sp" />
-
-            <com.appodeal.ads.BannerView
-                android:id="@+id/appodealBannerView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
-
         </LinearLayout>
 
         <LinearLayout

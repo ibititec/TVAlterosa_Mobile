@@ -1,7 +1,12 @@
 package com.ibititec.tvalterosa;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -12,13 +17,17 @@ import android.widget.TextView;
 
 import com.appodeal.ads.Appodeal;
 import com.ibititec.tvalterosa.bolao.BolaoPrincipalActivity;
+import com.ibititec.tvalterosa.helpers.HttpHelper;
+
+import java.io.IOException;
 
 public class PrimeiraDivisaoActivity extends AppCompatActivity {
 
-    private ImageButton btnTabela, btnArtilharia, btnClassificacao, btnAjuda, btnBolao;
-    private TextView txtTabela, txtArtilharia, txtClassificacao, txtAjuda, txtBolao;
+    private ImageButton btnTabela, btnArtilharia, btnClassificacao, btnAjuda, btnBolao, btnProximaRodada;
+    private TextView txtTabela, txtArtilharia, txtClassificacao, txtAjuda, txtBolao, txtProximaRodada;
     private String divisao;
     Toolbar toolbar;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +41,13 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
         btnTabela = (ImageButton) findViewById(R.id.btnPrimeiraDivisaoTabela);
         btnClassificacao = (ImageButton) findViewById(R.id.btnPrimeiraDivisaoClassificacao);
         btnAjuda = (ImageButton) findViewById(R.id.btnPrimeiraDivisaoSobre);
-       // btnBolao = (ImageButton) findViewById(R.id.btnPrimeiraDivisaoBolao);
+        btnProximaRodada = (ImageButton) findViewById(R.id.btnProximaRodada);
 
         txtArtilharia = (TextView) findViewById(R.id.txtArtilharia);
         txtTabela = (TextView) findViewById(R.id.txtTabela);
         txtClassificacao = (TextView) findViewById(R.id.txtClassificacao);
         txtAjuda = (TextView) findViewById(R.id.txtHelp);
-       // txtBolao = (TextView) findViewById(R.id.txtBolao);
+        txtProximaRodada = (TextView) findViewById(R.id.txtProximaRodada);
 
         lerIntent();
         executarAcoes();
@@ -90,7 +99,7 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
             btnArtilharia.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startarActivity(divisao, "artilharia");
+                    startarActivityArtilharia(divisao, "artilharia");
                 }
             });
 
@@ -105,6 +114,13 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     startarActivity(divisao, "classificacao");
+                }
+            });
+
+            btnProximaRodada.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startarActivityProximaRodada(divisao);
                 }
             });
 
@@ -125,7 +141,7 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
             txtArtilharia.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startarActivity(divisao, "artilharia");
+                    startarActivityArtilharia(divisao, "artilharia");
                 }
             });
 
@@ -156,9 +172,31 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
                     startarActivityBolao(divisao);
                 }
             });
+
+            txtProximaRodada.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startarActivityProximaRodada(divisao);
+                }
+            });
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: executarAcoes PrimeiraDivisao: " + ex.getMessage());
         }
+    }
+
+    private void startarActivityProximaRodada(String divisao) {
+        try {
+            if (HttpHelper.existeConexao(this)) {
+                donwnloadFromUrl(MainActivity.PROXIMA_RODADA, getString(R.string.url_proximarodada), "");
+                intent = new Intent(this, PrimeiraDivisaoTabelaActivity.class);
+            } else {
+                exibirMensagem();
+                Log.i(MainActivity.TAG, "Sem conexão com a internet.");
+            }
+        } catch (Exception ex) {
+            Log.i(MainActivity.TAG, "Erro: startarActivityHelp PrimeiraDivisao: " + ex.getMessage());
+        }
+
     }
 
     private void startarActivityHelp(String divisao, String funcionalidade) {
@@ -176,6 +214,17 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
         try {
             Intent intent = new Intent(this, BolaoPrincipalActivity.class);
             intent.putExtra("divisao", divisao);
+            startActivity(intent);
+        } catch (Exception ex) {
+            Log.i(MainActivity.TAG, "Erro: startarActivityBolao PrimeiraDivisao: " + ex.getMessage());
+        }
+    }
+
+    private void startarActivityArtilharia(String divisao, String funcionalidade) {
+        try {
+            Intent intent = new Intent(this, PrimeiraDivisaoTabelaActivity.class);
+            intent.putExtra("divisao", divisao);
+            intent.putExtra("funcionalidade", funcionalidade);
             startActivity(intent);
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: startarActivityBolao PrimeiraDivisao: " + ex.getMessage());
@@ -207,5 +256,79 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
         int id = item.getItemId();
         onBackPressed();
         return true;
+    }
+
+    private void donwnloadFromUrl(final String nomeJsonParam, String urlJson, final String param) {
+        (new AsyncTask<String, Void, String>() {
+            ProgressDialog progressDialog;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                progressDialog = ProgressDialog.show(PrimeiraDivisaoActivity.this, "Aguarde", "Atualizando dados");
+            }
+
+            @Override
+            protected String doInBackground(String... params) {
+                String json = null;
+
+                try {
+                    String url = params[0];
+                    if (param.equals("")) {
+                        json = HttpHelper.downloadFromURL(url);
+                    } else {
+                        json = HttpHelper.POSTJson(url, param);
+                    }
+                    Log.i(MainActivity.TAG, json);
+                    if (json == null) {
+                        Log.w(MainActivity.TAG, "JSON veio nulo na url : " + url);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Log.e(MainActivity.TAG, String.format(getString(R.string.msg_erro_json), e.getMessage()));
+                }
+                return json;
+            }
+
+            @Override
+            protected void onPostExecute(String json) {
+                super.onPostExecute(json);
+
+                progressDialog.dismiss();
+
+                if (json == null) {
+                    //Log.w(TAG, "JSON veio nulo!");
+                    return;
+                }
+
+                PreferenceManager.getDefaultSharedPreferences(PrimeiraDivisaoActivity.this).edit()
+                        .putString(nomeJsonParam + ".json", json)
+                        .apply();
+                intent.putExtra("divisao", divisao);
+                intent.putExtra("funcionalidade", "ProximaRodada");
+                startActivity(intent);
+            }
+        }).execute(urlJson);
+    }
+
+    private void exibirMensagem() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        //define o titulo
+        builder.setTitle("Atenção");
+        //define a mensagem
+        builder.setMessage("Para visualizar a próxima rodada é necessário conexão com a internet.");
+        //define um botão como positivo
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface arg0, int arg1) {
+                return;
+                // Toast.makeText(MainActivity.this, "positivo=" + arg1, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //cria o AlertDialog
+        AlertDialog alerta = builder.create();
+        //Exibe
+        alerta.show();
     }
 }
