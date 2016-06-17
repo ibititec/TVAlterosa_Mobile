@@ -91,15 +91,15 @@ public class AdapterRodada extends BaseAdapter {
 
             txtVsJogo1.setText(jogo1Array[1]);
 
-            Log.i(MainActivity.TAG, "URL position: " + position + " - " + MainActivity.PATH_FOTOS + jogo1Array[0].trim() + ".jpg");
+            Log.i(MainActivity.TAG, "URL position: " + position + " - " + MainActivity.PATH_FOTOS + jogo1Array[0].trim() + ".png");
             Log.i(MainActivity.TAG, "jogo1Array[0]: " + jogo1Array[0]);
             Log.i(MainActivity.TAG, "jogo1Array[1]: " + jogo1Array[1]);
 
-            Uri imageUri = Uri.parse(MainActivity.PATH_FOTOS + jogo1Array[0].trim() + ".jpg");
+            Uri imageUri = Uri.parse(MainActivity.PATH_FOTOS + jogo1Array[0].trim() + ".png");
             SimpleDraweeView draweeView = (SimpleDraweeView) layout.findViewById(R.id.imageView2);
             draweeView.setImageURI(imageUri);
 
-            Uri imageUri2 = Uri.parse(MainActivity.PATH_FOTOS + jogo1Array[2].trim() + ".jpg");
+            Uri imageUri2 = Uri.parse(MainActivity.PATH_FOTOS + jogo1Array[2].trim() + ".png");
             SimpleDraweeView draweeView2 = (SimpleDraweeView) layout.findViewById(R.id.imageView3);
             draweeView2.setImageURI(imageUri2);
 

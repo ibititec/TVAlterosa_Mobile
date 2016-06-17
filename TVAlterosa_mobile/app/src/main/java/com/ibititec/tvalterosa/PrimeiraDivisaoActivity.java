@@ -124,12 +124,7 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
                 }
             });
 
-            btnAjuda.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startarActivityHelp(divisao, "sobre");
-                }
-            });
+
 
             btnBolao.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -159,12 +154,7 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
                 }
             });
 
-            txtAjuda.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startarActivityHelp(divisao, "sobre");
-                }
-            });
+
 
             txtBolao.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -199,16 +189,7 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
 
     }
 
-    private void startarActivityHelp(String divisao, String funcionalidade) {
-        try {
-            Intent intent = new Intent(this, SobreActivity.class);
-            intent.putExtra("divisao", divisao);
-            intent.putExtra("funcionalidade", funcionalidade);
-            startActivity(intent);
-        } catch (Exception ex) {
-            Log.i(MainActivity.TAG, "Erro: startarActivityHelp PrimeiraDivisao: " + ex.getMessage());
-        }
-    }
+
 
     private void startarActivityBolao(String divisao) {
         try {

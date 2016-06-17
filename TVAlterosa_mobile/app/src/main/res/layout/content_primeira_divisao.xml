@@ -44,14 +44,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"  android:paddingTop="20dp">
 
             <ImageButton
                 android:id="@+id/btnProximaRodada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/Transparente"
-                android:src="@drawable/pdtabela" />
+                android:src="@drawable/proximarodada" />
 
             <TextView
                 android:id="@+id/txtProximaRodada"
@@ -62,29 +62,6 @@
                 android:layout_gravity="center_vertical"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="20dp">
-
-            <ImageButton
-                android:id="@+id/btnPrimeiraDivisaoArtilharia"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/Transparente"
-               android:src="@drawable/pdartilharia" />
-
-            <TextView
-                android:id="@+id/txtArtilharia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ARTILHARIA"
-                android:paddingLeft="10dp"
-                android:layout_gravity="center_vertical"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
 
         <LinearLayout
@@ -116,26 +93,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingTop="20dp">
 
             <ImageButton
-                android:id="@+id/btnPrimeiraDivisaoSobre"
+                android:id="@+id/btnPrimeiraDivisaoArtilharia"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/Transparente"
-                android:src="@drawable/pdajuda" />
+               android:src="@drawable/pdartilharia" />
 
             <TextView
-                android:id="@+id/txtHelp"
+                android:id="@+id/txtArtilharia"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="AJUDA"
-
+                android:text="ARTILHARIA"
                 android:paddingLeft="10dp"
                 android:layout_gravity="center_vertical"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="20dp" />
+                android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
+
+
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CHAVE A"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/btnChaveA"
@@ -52,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CHAVE B"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/btnChaveB"
@@ -79,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CHAVE C"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/btnChaveC"
@@ -106,7 +106,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CHAVE D"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <ImageView
             android:id="@+id/btnChaveD"

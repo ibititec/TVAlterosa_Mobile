@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     //DECLARACAO DOS OBJETOS DE TELA
-    private ImageButton btnPrimeiraDivisao, btnSegundaDivisao, btnNoticias;
-    private TextView txtPrimeiraDivisao, txtSegundaDivisao, txtNoticias;
+    private ImageButton btnPrimeiraDivisao, btnSegundaDivisao, btnNoticias, btnAjuda;
+    private TextView txtPrimeiraDivisao, txtSegundaDivisao, txtNoticias ,txtAjuda;
     // private ProgressDialog progressDialog;
 
     //CONSTANTES NOME DO JSON NA BASE DE DADOS
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity
             PROXIMA_RODADA = "PROXIMA_RODADA";
 
     public static final String TAG = "CAMPEONATOLD";
-    public static final String PATH_FOTOS = "http://52.37.37.207:94/Admin/Time/Image?nomeimagem=";
+    public static final String PATH_FOTOS = "http://52.37.37.207:98/Admin/Time/Image?nomeimagem=";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +71,11 @@ public class MainActivity extends AppCompatActivity
         btnPrimeiraDivisao = (ImageButton) findViewById(R.id.btnPrimeiraDivisao);
         //btnSegundaDivisao = (ImageButton) findViewById(R.id.btnSegundaDivisao);
         btnNoticias = (ImageButton) findViewById(R.id.btnNoticias);
-
+        btnAjuda = (ImageButton) findViewById(R.id.btnPrimeiraDivisaoSobre);
         txtPrimeiraDivisao = (TextView) findViewById(R.id.txtPrimeiraDivisao);
        // txtSegundaDivisao = (TextView) findViewById(R.id.txtSegundaDivisao);
         txtNoticias = (TextView) findViewById(R.id.txtNoticias);
-
+        txtAjuda= (TextView) findViewById(R.id.txtHelp);
     }
 
     private void iniciarAppodeal() {
@@ -229,11 +229,33 @@ public class MainActivity extends AppCompatActivity
                     startarActivityNoticia();
                 }
             });
+
+            btnAjuda.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startarActivityHelp("primeira", "sobre");
+                }
+            }); txtAjuda.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startarActivityHelp("primeira", "sobre");
+                }
+            });
+
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: executarAcoes MainActivity: " + ex.getMessage());
         }
     }
-
+    private void startarActivityHelp(String divisao, String funcionalidade) {
+        try {
+            Intent intent = new Intent(this, SobreActivity.class);
+            intent.putExtra("divisao", divisao);
+            intent.putExtra("funcionalidade", funcionalidade);
+            startActivity(intent);
+        } catch (Exception ex) {
+            Log.i(MainActivity.TAG, "Erro: startarActivityHelp PrimeiraDivisao: " + ex.getMessage());
+        }
+    }
     private void startarActivity(String divisao) {
         try {
             Intent intent = new Intent(this, PrimeiraDivisaoActivity.class);

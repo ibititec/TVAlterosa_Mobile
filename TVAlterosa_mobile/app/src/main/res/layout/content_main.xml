@@ -65,7 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:text="Notícias"
+                android:text="NOTÍCIAS"
                 android:textAlignment="center"
                 android:textSize="24sp" />
 
@@ -75,6 +75,29 @@
                 android:layout_height="wrap_content"
                 android:visibility="gone" />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"  android:paddingTop="20dp">
+
+            <ImageButton
+                android:id="@+id/btnPrimeiraDivisaoSobre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/Transparente"
+                android:src="@drawable/pdajuda" />
+
+            <TextView
+                android:id="@+id/txtHelp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AJUDA"
+                android:textAlignment="center"
+                android:paddingLeft="10dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="24sp" />
         </LinearLayout>
 
     </LinearLayout>

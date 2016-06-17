@@ -84,7 +84,6 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView9"
-            android:text="Envie nos o escudo do seu time para melhor visualização no aplicativo."
             android:textAppearance="?android:attr/textAppearanceLarge" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

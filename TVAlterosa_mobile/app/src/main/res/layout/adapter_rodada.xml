@@ -84,11 +84,14 @@
             android:textAlignment="center"
             android:layout_gravity="center_horizontal"
             android:id="@+id/txtNomeTimeMandante"/>
-
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/imageView2"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
             fresco:actualImageScaleType="centerCrop"
             fresco:failureImage="@drawable/error_img"
@@ -100,14 +103,15 @@
         <TextView
             android:id="@+id/txtversus"
             android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical"
             android:layout_height="wrap_content"
             android:text=" X "
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/imageView3"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_gravity="center_horizontal"
             fresco:actualImageScaleType="centerCrop"
             fresco:failureImage="@drawable/error_img"
@@ -115,6 +119,9 @@
             fresco:placeholderImage="@drawable/loading_img"
             fresco:retryImage="@drawable/retry_img"
             fresco:roundedCornerRadius="5dp" />
+
+</LinearLayout>
+
         <TextView
             android:text="Teste"
             android:textSize="20sp"
