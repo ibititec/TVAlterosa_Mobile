@@ -51,13 +51,18 @@ public class AdapterClassificacao extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) activity.getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             layout = inflater.inflate(R.layout.adapter_classificacao, null);
 
-            TextView posicao = (TextView) layout.findViewById(R.id.txtPosicao);
+           // TextView posicao = (TextView) layout.findViewById(R.id.txtPosicao);
             TextView pontos = (TextView) layout.findViewById(R.id.txtPontos);
             TextView time = (TextView) layout.findViewById(R.id.txtTime);
+            TextView vitorias = (TextView) layout.findViewById(R.id.txtVitorias);
+            TextView saldo = (TextView) layout.findViewById(R.id.txtSaldoG);
 
-            posicao.setText(classificacao.getPosicao());
+           // posicao.setText(classificacao.getPosicao());
             pontos.setText(classificacao.getPontos());
             time.setText(classificacao.getTime());
+            vitorias.setText(classificacao.getVitoria());
+            saldo.setText(classificacao.getSaldoGol());
+
             return layout;
         } catch (Exception e) {
             Log.i(MainActivity.TAG, "Erro ao preecnher o getView: " + e.getMessage());

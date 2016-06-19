@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.ibititec.tvalterosa.MainActivity;
 import com.ibititec.tvalterosa.R;
@@ -32,6 +33,7 @@ public class AdapterRodada extends BaseAdapter {
         this.activity = activityParam;
         this.funcionalidade = funcionalidade;
         this.divisao = divisao;
+        Fresco.initialize(activityParam);
     }
 
     public AdapterRodada() {
@@ -61,7 +63,7 @@ public class AdapterRodada extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) activity.getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             View layout = inflater.inflate(R.layout.adapter_rodada, null);
 
-            TextView txtRodada = (TextView) layout.findViewById(R.id.txtRodada);
+            //TextView txtRodada = (TextView) layout.findViewById(R.id.txtRodada);
             TextView txtData = (TextView) layout.findViewById(R.id.txtData);
             TextView txtCampo = (TextView) layout.findViewById(R.id.txtCampo);
             TextView txtHrJogo1 = (TextView) layout.findViewById(R.id.txtHrJogo1);
@@ -70,16 +72,19 @@ public class AdapterRodada extends BaseAdapter {
             TextView txtNomeTimeVisitante = (TextView) layout.findViewById(R.id.txtNomeTimeVisitante);
             TextView txtCidade = (TextView) layout.findViewById(R.id.txtCidade);
 
-            txtRodada.setText("RODADA: " + rodadaObj.getNumero() + " - ");
-            txtData.setText("DATA: " + rodadaObj.getData());
-            txtCidade.setText("CIDADE: " + rodadaObj.getCidade());
-            txtCampo.setText("ESTÁDIO: " + rodadaObj.getCampo());
-            txtHrJogo1.setText("HR: " + rodadaObj.getHoraJogo1());
+            //txtRodada.setText(rodadaObj.getNumero() + "ª RODADA");
+            txtData.setText("DATA: " + rodadaObj.getData().toUpperCase());
+            txtCidade.setText("CIDADE: " + rodadaObj.getCidade().toUpperCase());
+            txtCampo.setText("ESTÁDIO: " + rodadaObj.getCampo().toUpperCase());
+            txtHrJogo1.setText("HORÁRIO: " + rodadaObj.getHoraJogo1().toUpperCase());
 
-            txtNomeTimeMandante.setText(rodadaObj.getNomeTimeMandante());
-            txtNomeTimeVisitante.setText(rodadaObj.getNomeTimeVisitante());
+            txtNomeTimeMandante.setText(rodadaObj.getNomeTimeMandante().toUpperCase());
+            txtNomeTimeVisitante.setText(rodadaObj.getNomeTimeVisitante().toUpperCase());
 
-            //setando nome da imagem a ser exibida
+            if(position== rodadaList.size()-1) {
+                layout.setPadding(16, 16, 16, 150);
+            }
+          //setando nome da imagem a ser exibida
             String[] jogo1Array = splitString(rodadaObj.getJogo1());
             //String[] jogo2Array = splitString(rodadaObj.getJogo2());
 
@@ -92,8 +97,10 @@ public class AdapterRodada extends BaseAdapter {
             txtVsJogo1.setText(jogo1Array[1]);
 
             Log.i(MainActivity.TAG, "URL position: " + position + " - " + MainActivity.PATH_FOTOS + jogo1Array[0].trim() + ".png");
+            Log.i(MainActivity.TAG, "URL position: " + position + " - " + MainActivity.PATH_FOTOS + jogo1Array[1].trim() + ".png");
             Log.i(MainActivity.TAG, "jogo1Array[0]: " + jogo1Array[0]);
             Log.i(MainActivity.TAG, "jogo1Array[1]: " + jogo1Array[1]);
+            Log.i(MainActivity.TAG, "jogo1Array[2]: " + jogo1Array[2]);
 
             Uri imageUri = Uri.parse(MainActivity.PATH_FOTOS + jogo1Array[0].trim() + ".png");
             SimpleDraweeView draweeView = (SimpleDraweeView) layout.findViewById(R.id.imageView2);

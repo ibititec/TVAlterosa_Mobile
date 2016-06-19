@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.appodeal.ads.Appodeal;
 import com.facebook.drawee.backends.pipeline.Fresco;
@@ -23,6 +24,8 @@ import com.ibititec.tvalterosa.modelo.Classificacao;
 import com.ibititec.tvalterosa.modelo.Rodada;
 import com.ibititec.tvalterosa.util.AnalyticsApplication;
 
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
@@ -30,7 +33,7 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private ListView lvTabela;
     private LinearLayout cabecalhoLayout;
-    private String funcionalidade, divisao, tabela, classificacao, artilharia, chave;
+    private String funcionalidade, divisao, tabela, classificacao, artilharia, chave, rodada;
     static final String TAG = "CAMPEONATOLD";
     Toolbar toolbar;
 
@@ -52,6 +55,8 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
         // //INICIALIZACAO DO FRESCO
         Fresco.initialize(this);
     }
+
+
 
     @Override
     public void onResume() {
@@ -105,8 +110,23 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
                     } else if (chave.equals("C")) {
                         atualizarTabelaChaveC();
                     } else if (chave.equals("D")) {
-
                         atualizarTabelaChaveD();
+                    } else if (chave.equals(("1"))) {
+                        atualizarTabelaPorRodada(chave);
+                    } else if (chave.equals(("2"))) {
+
+                        atualizarTabelaPorRodada(chave);
+                    } else if (chave.equals(("3"))) {
+
+                        atualizarTabelaPorRodada(chave);
+                    } else if (chave.equals(("4"))) {
+
+                        atualizarTabelaPorRodada(chave);
+                    } else if (chave.equals(("5"))) {
+
+                        atualizarTabelaPorRodada(chave);
+                    } else if (chave.equals(("6"))) {
+                        atualizarTabelaPorRodada(chave);
                     }
                     break;
                 case "classificacao":
@@ -136,6 +156,52 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
         }
     }
 
+    private void atualizarTabelaPorRodada(String rodada) {
+        try {
+            this.setTitle(rodada + " ª Rodada");
+            String tabelaA = JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_A, this);
+            String tabelaB = JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_B, this);
+            String tabelaC = JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_C, this);
+            String tabelaD = JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_D, this);
+
+            List<Rodada> listRodadaA = JsonHelper.getList(tabelaA, Rodada[].class);
+            List<Rodada> listRodadaB = JsonHelper.getList(tabelaB, Rodada[].class);
+            List<Rodada> listRodadaC = JsonHelper.getList(tabelaC, Rodada[].class);
+            List<Rodada> listRodadaD = JsonHelper.getList(tabelaD, Rodada[].class);
+
+            List<Rodada> listaRodadaPorRodada = new ArrayList<Rodada>();
+
+            for (Rodada rod : listRodadaA) {
+                if (rod.getNumero().equals(rodada)) {
+                    listaRodadaPorRodada.add(rod);
+                }
+            }
+
+            for (Rodada rod : listRodadaB) {
+                if (rod.getNumero().equals(rodada)) {
+                    listaRodadaPorRodada.add(rod);
+                }
+            }
+
+            for (Rodada rod : listRodadaC) {
+                if (rod.getNumero().equals(rodada)) {
+                    listaRodadaPorRodada.add(rod);
+                }
+            }
+
+            for (Rodada rod : listRodadaD) {
+                if (rod.getNumero().equals(rodada)) {
+                    listaRodadaPorRodada.add(rod);
+                }
+            }
+
+            AdapterRodada adapterRodada = new AdapterRodada(this, listaRodadaPorRodada, divisao, funcionalidade);
+            lvTabela.setAdapter(adapterRodada);
+            UIHelper.setListViewHeightBasedOnChildren(lvTabela);
+        } catch (Exception ex) {
+            Log.i(MainActivity.TAG, "Erro ao preencher listView: " + ex.getMessage());
+        }
+    }
 
     private void atualizarArtilhariaSegundaDivisao() {
         try {
@@ -228,6 +294,7 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
             Log.i(MainActivity.TAG, "Erro ao preencher listView: " + ex.getMessage());
         }
     }
+
     private void atualizarTabelaChaveProximaRodada() {
         try {
             this.setTitle("Próxima Rodada");
@@ -236,10 +303,26 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
             AdapterRodada adapterRodada = new AdapterRodada(this, listRodada, divisao, funcionalidade);
             lvTabela.setAdapter(adapterRodada);
             UIHelper.setListViewHeightBasedOnChildren(lvTabela);
+            verificarRodadaAtual();
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro ao preencher listView PROXIMA_RODADA: " + ex.getMessage());
         }
     }
+
+    private void verificarRodadaAtual() {
+        Calendar c = Calendar.getInstance();
+        int day = c.get(Calendar.DAY_OF_WEEK);
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+
+        if(day == 1 || day == 7){
+            TextView proximaRodada = (TextView) findViewById(R.id.txtProximaRodada);
+            proximaRodada.setText("RODADA ATUAL");
+
+            this.setTitle("Rodada Atual");
+        }
+    }
+
+
     private void atualizarTabelaChaveA() {
         try {
             this.setTitle("Tabela Chave A");

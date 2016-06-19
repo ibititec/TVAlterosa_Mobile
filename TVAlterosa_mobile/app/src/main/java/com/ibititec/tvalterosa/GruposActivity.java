@@ -14,8 +14,8 @@ import android.widget.TextView;
 
 public class GruposActivity extends AppCompatActivity {
 
-    TextView txtChaveA, txtChaveB, txtChaveC, txtChaveD;
-    ImageView imgChaveA, imgChaveB, imgChaveC, imgChaveD;
+    TextView txtRodada1, txtRodada2, txtRodada3, txtRodada4, txtRodada5, txtRodada6;
+    ImageView imgChave1, imgChave2, imgChave3, imgChave4, imgChave5, imgChave6;
 
     String divisao, funcionalidade;
 
@@ -28,8 +28,8 @@ public class GruposActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         iniciarlizarComponentes();
-        executarAcoes();
         lerIntent();
+        executarAcoes();
     }
 
     private void lerIntent() {
@@ -44,61 +44,106 @@ public class GruposActivity extends AppCompatActivity {
 
     private void executarAcoes() {
 
-        txtChaveA.setOnClickListener(new View.OnClickListener() {
+
+        txtRodada1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startaActivity("A");
+                startaActivityRodada("1");
             }
         });
 
-        txtChaveB.setOnClickListener(new View.OnClickListener() {
+        imgChave1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startaActivity("B");
+                startaActivityRodada("1");
             }
         });
 
-        txtChaveC.setOnClickListener(new View.OnClickListener() {
+        //
+        txtRodada2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startaActivity("C");
+                startaActivityRodada("2");
             }
         });
 
-        txtChaveD.setOnClickListener(new View.OnClickListener() {
+        imgChave2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startaActivity("D");
+                startaActivityRodada("2");
             }
         });
 
-        imgChaveA.setOnClickListener(new View.OnClickListener() {
+        txtRodada3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startaActivity("A");
+                startaActivityRodada("3");
             }
         });
 
-        imgChaveB.setOnClickListener(new View.OnClickListener() {
+        imgChave3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startaActivity("B");
+                startaActivityRodada("3");
             }
         });
 
-        imgChaveC.setOnClickListener(new View.OnClickListener() {
+        txtRodada4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startaActivity("C");
+                startaActivityRodada("4");
             }
         });
 
-        imgChaveD.setOnClickListener(new View.OnClickListener() {
+        imgChave4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startaActivity("D");
+                startaActivityRodada("4");
             }
         });
+
+        txtRodada5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startaActivityRodada("5");
+            }
+        });
+
+        imgChave5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startaActivityRodada("5");
+            }
+        });
+
+        txtRodada6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startaActivityRodada("6");
+            }
+        });
+
+        imgChave6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startaActivityRodada("6");
+            }
+        });
+
+
+    }
+
+    private void startaActivityRodada(String a) {
+        try {
+            Intent intent = new Intent(this, PrimeiraDivisaoTabelaActivity.class);
+            intent.putExtra("chave", a);
+            intent.putExtra("divisao", divisao);
+            intent.putExtra("funcionalidade", funcionalidade);
+
+            startActivity(intent);
+        } catch (Exception ex) {
+            Log.i(MainActivity.TAG, "Erro: Startar Activity Grupos: " + ex.getMessage());
+        }
     }
 
     private void startaActivity(String a) {
@@ -114,14 +159,30 @@ public class GruposActivity extends AppCompatActivity {
     }
 
     private void iniciarlizarComponentes() {
-        txtChaveA = (TextView) findViewById(R.id.chave_A);
-        txtChaveB = (TextView) findViewById(R.id.chave_B);
-        txtChaveC = (TextView) findViewById(R.id.chave_C);
-        txtChaveD = (TextView) findViewById(R.id.chave_D);
 
-        imgChaveA = (ImageView) findViewById(R.id.btnChaveA);
-        imgChaveB = (ImageView) findViewById(R.id.btnChaveB);
-        imgChaveC = (ImageView) findViewById(R.id.btnChaveC);
-        imgChaveD = (ImageView) findViewById(R.id.btnChaveD);
+
+        txtRodada1 = (TextView) findViewById(R.id.chave_Rodada_1);
+
+        imgChave1 = (ImageView) findViewById(R.id.btnRodada_1);
+
+        txtRodada2 = (TextView) findViewById(R.id.chave_Rodada_2);
+
+        imgChave2 = (ImageView) findViewById(R.id.btnRodada_2);
+
+        txtRodada3 = (TextView) findViewById(R.id.chave_Rodada_3);
+
+        imgChave3 = (ImageView) findViewById(R.id.btnRodada_3);
+
+        txtRodada4 = (TextView) findViewById(R.id.chave_Rodada_4);
+
+        imgChave4 = (ImageView) findViewById(R.id.btnRodada_4);
+
+        txtRodada5 = (TextView) findViewById(R.id.chave_Rodada_5);
+
+        imgChave5 = (ImageView) findViewById(R.id.btnRodada_5);
+
+        txtRodada6 = (TextView) findViewById(R.id.chave_Rodada_6);
+
+        imgChave6 = (ImageView) findViewById(R.id.btnRodada_6);
     }
 }

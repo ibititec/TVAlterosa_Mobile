@@ -12,34 +12,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ibititec.tvalterosa.adapter.AdapterAoVivo"
-    tools:showIn="@layout/activity_adapter_aoVivo">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
-
-    <!--<com.facebook.drawee.view.SimpleDraweeView-->
-        <!--android:id="@+id/img_time_FeedNoticias"-->
-        <!--android:layout_width="48dp"-->
-        <!--android:layout_height="48dp"-->
-        <!--android:layout_gravity="right"-->
-        <!--fresco:actualImageScaleType="centerCrop"-->
-        <!--fresco:failureImage="@drawable/error_img"-->
-        <!--fresco:failureImageScaleType="centerInside"-->
-        <!--fresco:placeholderImage="@drawable/loading_img"-->
-        <!--fresco:retryImage="@drawable/retry_img"-->
-        <!--fresco:roundedCornerRadius="5dp" />-->
+    >
 
     <TextView
         android:id="@+id/txtTituloFeedNoticias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/White"
+        android:textSize="30sp" />
 
-</LinearLayout>
     <TextView
         android:id="@+id/txtCorpoFeedNoticias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/White" />
 </LinearLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="30dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.ibititec.tvalterosa.GruposActivity"
+    tools:showIn="@layout/activity_grupos"
+    android:background="@drawable/fundo">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:id="@+id/chave_A"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CHAVE A"
+                android:textSize="20sp"
+                android:textColor="@color/White" />
+
+            <ImageView
+                android:id="@+id/btnChaveA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/arrow" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#ffffff" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/chave_B"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CHAVE B"
+                android:textSize="20sp"
+                android:textColor="@color/White" />
+
+            <ImageView
+                android:id="@+id/btnChaveB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/arrow" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#ffffff" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/chave_C"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CHAVE C"
+                android:textSize="20sp"
+                android:textColor="@color/White" />
+
+            <ImageView
+                android:id="@+id/btnChaveC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/arrow" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="2dp"
+            android:background="#ffffff" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/chave_D"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CHAVE D"
+                android:textSize="20sp"
+                android:textColor="@color/White" />
+
+            <ImageView
+                android:id="@+id/btnChaveD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/arrow" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

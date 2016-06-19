@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TV Alterosa SUB 20</string>
+    <string name="app_name">SUB 20</string>
     <string name="msg_erro_json">Erro baixando JSON: %s</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -19,7 +19,7 @@
     <string name="url_sdtabela">http://52.37.37.207:98/Admin/Partida/ObterTabelaJsonSD</string>
     <string name="url_sdclassificacao">http://52.37.37.207:98/Campeonato/ObterClassificacaoJson</string>
     <string name="title_activity_adapter_rodada">AdapterRodada</string>
-    <string name="title_activity_sobre">Sobre a Ibititec</string>
+    <string name="title_activity_sobre">Sobre</string>
     <string name="title_activity_login_usuario">Login Usuário</string>
     <string name="title_activity_cadastro_usuario">Cadastro Usuário</string>
 
@@ -77,5 +77,6 @@
             <br><p>** Os membros podem iniciar sua participação em qualquer rodada.</p></br>
             ]]>
     </string>
-    <string name="title_activity_grupos">Chaves</string>
+    <string name="title_activity_grupos">Partidas por Rodada</string>
+    <string name="title_activity_equipes">EquipesActivity</string>
 </resources>

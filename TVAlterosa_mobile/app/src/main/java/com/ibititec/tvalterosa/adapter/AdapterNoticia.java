@@ -63,25 +63,12 @@ public class AdapterNoticia extends BaseAdapter {
 
 
             titulo.setText(noticia.getTitulo());
-            Corpo.setText(noticia.getCorpo() + " - " + noticia.getDataNoticia());
-//            if(noticia.getTime() != null && !noticia.getTime().getEscudoPequeno().equals("")) {
-//                Uri imageUri = Uri.parse(MainActivity.PATH_FOTOS + noticia.getTime().getEscudoPequeno() + ".jpg");
-//                SimpleDraweeView draweeView = (SimpleDraweeView) layout.findViewById(R.id.img_time_FeedNoticias);
-//                draweeView.setImageURI(imageUri);
-//            }else {
-//                SimpleDraweeView draweeView = (SimpleDraweeView) layout.findViewById(R.id.img_time_FeedNoticias);
-//                draweeView.setVisibility(View.INVISIBLE);
-//            }
+            Corpo.setText(noticia.getCorpo() + " - " + noticia.getDataNoticia().substring(0,10));
 
-//            Button btnTempoReal = (Button) layout.findViewById(R.id.btnTempoRealPartida1);
-//            btnTempoReal.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    startarActivityPalpite(v, noticia);
-//                }
-//            });
+            if(position== noticiaList.size()-1) {
+                layout.setPadding(16, 16, 16, 150);
+            }
 
-            //Appodeal.show(activity, Appodeal.BANNER_BOTTOM);
             return layout;
 
         } catch (Exception e) {

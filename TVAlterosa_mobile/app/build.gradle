@@ -8,9 +8,9 @@ android {
     defaultConfig {
         applicationId "com.ibititec.tvalterosa"
         minSdkVersion 9
-        targetSdkVersion 23
+        targetSdkVersion 1
         versionCode 5
-        versionName "2.1"
+        versionName "1.0"
     }
     buildTypes {
         release {

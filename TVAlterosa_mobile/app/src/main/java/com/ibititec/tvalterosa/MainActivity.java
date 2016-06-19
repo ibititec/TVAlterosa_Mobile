@@ -21,6 +21,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.appodeal.ads.Appodeal;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.ibititec.tvalterosa.helpers.HttpHelper;
 import com.ibititec.tvalterosa.helpers.JsonHelper;
 import com.ibititec.tvalterosa.noticias.FeedNoticiasActivity;
@@ -76,6 +77,8 @@ public class MainActivity extends AppCompatActivity
        // txtSegundaDivisao = (TextView) findViewById(R.id.txtSegundaDivisao);
         txtNoticias = (TextView) findViewById(R.id.txtNoticias);
         txtAjuda= (TextView) findViewById(R.id.txtHelp);
+
+        Fresco.initialize(this);
     }
 
     private void iniciarAppodeal() {
@@ -114,13 +117,11 @@ public class MainActivity extends AppCompatActivity
                     donwnloadFromUrl(CLASSIFICACAO_C, getString(R.string.url_pdclassificacao_C), "{\"id\": \"3\"}");
                     donwnloadFromUrl(CLASSIFICACAO_D, getString(R.string.url_pdclassificacao_D), "{\"id\": \"4\"}");
 
-                    donwnloadFromUrl(SDTABELA, getString(R.string.url_sdtabela), "");
-                    donwnloadFromUrl(SDARTILHARIA, getString(R.string.url_sdartilharia), "{\"id\": \"3\"}");
-                    donwnloadFromUrl(SDCLASSIFICACAO, getString(R.string.url_sdclassificacao), "{\"id\": \"3\"}");
-
-                    donwnloadFromUrl(PDCLASSIFICACAOBOLAO, getString(R.string.url_pdclassificacaobolao), "");
-
-                    donwnloadFromUrl(SDCLASSIFICACAOBOLAO, getString(R.string.url_sdclassificacaobolao), "");
+                    //donwnloadFromUrl(SDTABELA, getString(R.string.url_sdtabela), "");
+                    //donwnloadFromUrl(SDARTILHARIA, getString(R.string.url_sdartilharia), "{\"id\": \"3\"}");
+                    //donwnloadFromUrl(SDCLASSIFICACAO, getString(R.string.url_sdclassificacao), "{\"id\": \"3\"}");
+                    //donwnloadFromUrl(PDCLASSIFICACAOBOLAO, getString(R.string.url_pdclassificacaobolao), "");
+                    //donwnloadFromUrl(SDCLASSIFICACAOBOLAO, getString(R.string.url_sdclassificacaobolao), "");
                 }
             }
         } catch (Exception ex) {

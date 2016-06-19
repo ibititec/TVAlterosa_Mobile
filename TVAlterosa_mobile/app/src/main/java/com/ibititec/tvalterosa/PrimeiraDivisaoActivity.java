@@ -19,12 +19,15 @@ import com.appodeal.ads.Appodeal;
 import com.ibititec.tvalterosa.bolao.BolaoPrincipalActivity;
 import com.ibititec.tvalterosa.helpers.HttpHelper;
 
+import org.w3c.dom.Text;
+
 import java.io.IOException;
+import java.util.Calendar;
 
 public class PrimeiraDivisaoActivity extends AppCompatActivity {
 
-    private ImageButton btnTabela, btnArtilharia, btnClassificacao, btnAjuda, btnBolao, btnProximaRodada;
-    private TextView txtTabela, txtArtilharia, txtClassificacao, txtAjuda, txtBolao, txtProximaRodada;
+    private ImageButton btnTabela, btnArtilharia, btnClassificacao, btnAjuda, btnEquipes, btnProximaRodada;
+    private TextView txtTabela, txtArtilharia, txtClassificacao, txtAjuda, txtEquipes, txtProximaRodada;
     private String divisao;
     Toolbar toolbar;
     Intent intent;
@@ -42,15 +45,31 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
         btnClassificacao = (ImageButton) findViewById(R.id.btnPrimeiraDivisaoClassificacao);
         btnAjuda = (ImageButton) findViewById(R.id.btnPrimeiraDivisaoSobre);
         btnProximaRodada = (ImageButton) findViewById(R.id.btnProximaRodada);
+        btnEquipes= (ImageButton) findViewById(R.id.btnEquipes);
 
         txtArtilharia = (TextView) findViewById(R.id.txtArtilharia);
         txtTabela = (TextView) findViewById(R.id.txtTabela);
         txtClassificacao = (TextView) findViewById(R.id.txtClassificacao);
         txtAjuda = (TextView) findViewById(R.id.txtHelp);
         txtProximaRodada = (TextView) findViewById(R.id.txtProximaRodada);
+        txtEquipes = (TextView) findViewById(R.id.txtEquipes);
 
         lerIntent();
         executarAcoes();
+
+        verificarRodadaAtual();
+    }
+
+    private void verificarRodadaAtual() {
+        Calendar c = Calendar.getInstance();
+        int day = c.get(Calendar.DAY_OF_WEEK);
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+
+        if(day == 1 || day == 7){
+            TextView proximaRodada = (TextView) findViewById(R.id.txtProximaRodada);
+            proximaRodada.setText("RODADA ATUAL");
+
+        }
     }
 
     @Override
@@ -89,7 +108,7 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
             } else {
                 this.setTitle("Segunda Divisão");
 
-                btnBolao.setImageResource(R.drawable.sdbolao);
+               // btnBolao.setImageResource(R.drawable.sdbolao);
                 btnAjuda.setImageResource(R.drawable.sdajuda);
                 btnTabela.setImageResource(R.drawable.sdtabela);
                 btnArtilharia.setImageResource(R.drawable.sdartilharia);
@@ -126,10 +145,17 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
 
 
 
-            btnBolao.setOnClickListener(new View.OnClickListener() {
+            btnEquipes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startarActivityBolao(divisao);
+                    startarActivityEquipes(divisao);
+                }
+            });
+
+            txtEquipes.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startarActivityEquipes(divisao);
                 }
             });
 
@@ -156,12 +182,6 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
 
 
 
-            txtBolao.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startarActivityBolao(divisao);
-                }
-            });
 
             txtProximaRodada.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -169,6 +189,8 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
                     startarActivityProximaRodada(divisao);
                 }
             });
+
+
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: executarAcoes PrimeiraDivisao: " + ex.getMessage());
         }
@@ -191,10 +213,11 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
 
 
 
-    private void startarActivityBolao(String divisao) {
+    private void startarActivityEquipes(String divisao) {
         try {
-            Intent intent = new Intent(this, BolaoPrincipalActivity.class);
+            Intent intent = new Intent(this, EquipesActivity.class);
             intent.putExtra("divisao", divisao);
+            intent.putExtra("funcionalidade", "equipes");
             startActivity(intent);
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: startarActivityBolao PrimeiraDivisao: " + ex.getMessage());
@@ -214,7 +237,7 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
 
     private void startarActivity(String divisao, String funcionalidade) {
         try {
-            Intent intent = new Intent(this, GruposActivity.class);
+            Intent intent = new Intent(this, EquipesActivity.class);
             intent.putExtra("divisao", divisao);
             intent.putExtra("funcionalidade", funcionalidade);
             startActivity(intent);
