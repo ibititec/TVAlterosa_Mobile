@@ -24,6 +24,7 @@ public class EquipesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_equipes);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         iniciarlizarComponentes();
         lerIntent();
@@ -103,56 +104,56 @@ public class EquipesActivity extends AppCompatActivity {
             txtChaveA.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startaActivity("A");
+                    startaActivityEquipes("A");
                 }
             });
 
             txtChaveB.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startaActivity("B");
+                    startaActivityEquipes("B");
                 }
             });
 
             txtChaveC.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startaActivity("C");
+                    startaActivityEquipes("C");
                 }
             });
 
             txtChaveD.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startaActivity("D");
+                    startaActivityEquipes("D");
                 }
             });
 
             imgChaveA.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startaActivity("A");
+                    startaActivityEquipes("A");
                 }
             });
 
             imgChaveB.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startaActivity("B");
+                    startaActivityEquipes("B");
                 }
             });
 
             imgChaveC.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startaActivity("C");
+                    startaActivityEquipes("C");
                 }
             });
 
             imgChaveD.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startaActivity("D");
+                    startaActivityEquipes("D");
                 }
             });
         }
@@ -182,6 +183,17 @@ public class EquipesActivity extends AppCompatActivity {
         }
     }
 
+    private void startaActivityEquipes(String a) {
+        try {
+            Intent intent = new Intent(this, EquipesImageActivity.class);
+            intent.putExtra("chave", a);
+            intent.putExtra("divisao", divisao);
+            intent.putExtra("funcionalidade", "equipes");
+            startActivity(intent);
+        } catch (Exception ex) {
+            Log.i(MainActivity.TAG, "Erro: Startar Activity Grupos: " + ex.getMessage());
+        }
+    }
     private void startaActivity(String a) {
         try {
             Intent intent = new Intent(this, PrimeiraDivisaoTabelaActivity.class);

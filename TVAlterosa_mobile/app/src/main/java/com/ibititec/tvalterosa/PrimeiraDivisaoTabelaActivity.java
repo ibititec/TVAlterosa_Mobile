@@ -24,9 +24,15 @@ import com.ibititec.tvalterosa.modelo.Classificacao;
 import com.ibititec.tvalterosa.modelo.Rodada;
 import com.ibititec.tvalterosa.util.AnalyticsApplication;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
 
@@ -55,7 +61,6 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
         // //INICIALIZACAO DO FRESCO
         Fresco.initialize(this);
     }
-
 
 
     @Override
@@ -194,7 +199,25 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
                     listaRodadaPorRodada.add(rod);
                 }
             }
+            Collections.sort(listaRodadaPorRodada, new Comparator<Rodada>() {
+                        @Override
+                        public int compare(Rodada lhs, Rodada rhs) {
+                            Date date;
+                            Date date2;
 
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+                            try {
+                                date = sdf.parse(lhs.getPartida1().getDataPartida());
+                                date2 = sdf.parse(rhs.getPartida1().getDataPartida());
+                                return date.compareTo(date2);
+
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                                return 0;
+                            }
+                        }
+                    }
+            );
             AdapterRodada adapterRodada = new AdapterRodada(this, listaRodadaPorRodada, divisao, funcionalidade);
             lvTabela.setAdapter(adapterRodada);
             UIHelper.setListViewHeightBasedOnChildren(lvTabela);
@@ -314,7 +337,7 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
         int day = c.get(Calendar.DAY_OF_WEEK);
         int hour = c.get(Calendar.HOUR_OF_DAY);
 
-        if(day == 1 || day == 7){
+        if (day == 1 || day == 7) {
             TextView proximaRodada = (TextView) findViewById(R.id.txtProximaRodada);
             proximaRodada.setText("RODADA ATUAL");
 

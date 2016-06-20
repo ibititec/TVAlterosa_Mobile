@@ -132,7 +132,7 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
             btnClassificacao.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startarActivity(divisao, "classificacao");
+                    startarActivityEquipes(divisao, "classificacao");
                 }
             });
 
@@ -143,19 +143,17 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
                 }
             });
 
-
-
             btnEquipes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startarActivityEquipes(divisao);
+                    startarActivityEquipes(divisao, "equipes");
                 }
             });
 
             txtEquipes.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startarActivityEquipes(divisao);
+                    startarActivityEquipes(divisao, "equipes");
                 }
             });
 
@@ -213,11 +211,11 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
 
 
 
-    private void startarActivityEquipes(String divisao) {
+    private void startarActivityEquipes(String divisao, String funcionalidade) {
         try {
             Intent intent = new Intent(this, EquipesActivity.class);
             intent.putExtra("divisao", divisao);
-            intent.putExtra("funcionalidade", "equipes");
+            intent.putExtra("funcionalidade", funcionalidade);
             startActivity(intent);
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: startarActivityBolao PrimeiraDivisao: " + ex.getMessage());
@@ -237,7 +235,7 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
 
     private void startarActivity(String divisao, String funcionalidade) {
         try {
-            Intent intent = new Intent(this, EquipesActivity.class);
+            Intent intent = new Intent(this, GruposActivity.class);
             intent.putExtra("divisao", divisao);
             intent.putExtra("funcionalidade", funcionalidade);
             startActivity(intent);

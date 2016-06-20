@@ -324,11 +324,17 @@
         <activity
             android:name=".GruposActivity"
             android:label="@string/title_activity_grupos"
-            android:parentActivityName=".PrimeiraDivisaoTabelaActivity"
+            android:parentActivityName=".PrimeiraDivisaoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EquipesActivity"
             android:label="@string/title_activity_equipes"
+            android:parentActivityName=".PrimeiraDivisaoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EquipesImageActivity"
+            android:label="@string/title_activity_equipes_image"
+            android:parentActivityName=".PrimeiraDivisaoActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

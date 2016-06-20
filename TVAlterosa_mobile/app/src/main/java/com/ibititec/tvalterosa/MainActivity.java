@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity
 
     //DECLARACAO DOS OBJETOS DE TELA
     private ImageButton btnPrimeiraDivisao, btnSegundaDivisao, btnNoticias, btnAjuda;
-    private TextView txtPrimeiraDivisao, txtSegundaDivisao, txtNoticias ,txtAjuda;
+    private TextView txtPrimeiraDivisao, txtSegundaDivisao, txtNoticias, txtAjuda;
     // private ProgressDialog progressDialog;
 
     //CONSTANTES NOME DO JSON NA BASE DE DADOS
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity
             SDARTILHARIA = "sdartilharia", SDTABELA = "dstabela", SDCLASSIFICACAO = "sdclassificacao",
             PDCLASSIFICACAOBOLAO = "pdclassificacaobolao", SDCLASSIFICACAOBOLAO = "sdclassificacaobolao",
             PDJOGOSBOLAO = "pdjogosbolao", SDJOGOSBOLAO = "sdjogosbolao", USUARIO = "usuario", PDJOGOSRODADA = "pdjogosRODADA", SDJOGOSRODADA = "sdjogosRODADA",
-            TABELA_CHAVE_A = "TABELA_CHAVE_A",TABELA_CHAVE_B = "TABELA_CHAVE_B",TABELA_CHAVE_C = "TABELA_CHAVE_C",TABELA_CHAVE_D = "TABELA_CHAVE_D",
+            TABELA_CHAVE_A = "TABELA_CHAVE_A", TABELA_CHAVE_B = "TABELA_CHAVE_B", TABELA_CHAVE_C = "TABELA_CHAVE_C", TABELA_CHAVE_D = "TABELA_CHAVE_D",
             CLASSIFICACAO_A = "CLASSIFICACAO_A", CLASSIFICACAO_B = "CLASSIFICACAO_B", CLASSIFICACAO_C = "CLASSIFICACAO_C", CLASSIFICACAO_D = "CLASSIFICACAO_D",
             PROXIMA_RODADA = "PROXIMA_RODADA";
 
@@ -74,9 +74,9 @@ public class MainActivity extends AppCompatActivity
         btnNoticias = (ImageButton) findViewById(R.id.btnNoticias);
         btnAjuda = (ImageButton) findViewById(R.id.btnPrimeiraDivisaoSobre);
         txtPrimeiraDivisao = (TextView) findViewById(R.id.txtPrimeiraDivisao);
-       // txtSegundaDivisao = (TextView) findViewById(R.id.txtSegundaDivisao);
+        // txtSegundaDivisao = (TextView) findViewById(R.id.txtSegundaDivisao);
         txtNoticias = (TextView) findViewById(R.id.txtNoticias);
-        txtAjuda= (TextView) findViewById(R.id.txtHelp);
+        txtAjuda = (TextView) findViewById(R.id.txtHelp);
 
         Fresco.initialize(this);
     }
@@ -100,29 +100,28 @@ public class MainActivity extends AppCompatActivity
         try {
             //INCLUIR LOGICA PARA ATUALIZACAO AUTOMATICA
 
-            if (JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_A, this) == "" || atualizar == true) {
-                if (!HttpHelper.existeConexao(this)) {
-                    exibirMensagem();
-                    Log.i(TAG, "Sem conexão com a internet.");
-                } else {
-                    donwnloadFromUrl(TABELA_CHAVE_A, getString(R.string.url_pdtabela_A),  "{\"id\": \"1\"}");
-                    donwnloadFromUrl(TABELA_CHAVE_B, getString(R.string.url_pdtabela_B),  "{\"id\": \"2\"}");
-                    donwnloadFromUrl(TABELA_CHAVE_C, getString(R.string.url_pdtabela_C),  "{\"id\": \"3\"}");
-                    donwnloadFromUrl(TABELA_CHAVE_D, getString(R.string.url_pdtabela_D),  "{\"id\": \"4\"}");
 
-                    donwnloadFromUrl(PDARTILHARIA, getString(R.string.url_pdartilharia), "");
+            if (!HttpHelper.existeConexao(this)) {
+                exibirMensagem();
+                Log.i(TAG, "Sem conexão com a internet.");
+            } else {
+                donwnloadFromUrl(TABELA_CHAVE_A, getString(R.string.url_pdtabela_A), "{\"id\": \"1\"}");
+                donwnloadFromUrl(TABELA_CHAVE_B, getString(R.string.url_pdtabela_B), "{\"id\": \"2\"}");
+                donwnloadFromUrl(TABELA_CHAVE_C, getString(R.string.url_pdtabela_C), "{\"id\": \"3\"}");
+                donwnloadFromUrl(TABELA_CHAVE_D, getString(R.string.url_pdtabela_D), "{\"id\": \"4\"}");
 
-                    donwnloadFromUrl(CLASSIFICACAO_A, getString(R.string.url_pdclassificacao_A), "{\"id\": \"1\"}");
-                    donwnloadFromUrl(CLASSIFICACAO_B, getString(R.string.url_pdclassificacao_B), "{\"id\": \"2\"}");
-                    donwnloadFromUrl(CLASSIFICACAO_C, getString(R.string.url_pdclassificacao_C), "{\"id\": \"3\"}");
-                    donwnloadFromUrl(CLASSIFICACAO_D, getString(R.string.url_pdclassificacao_D), "{\"id\": \"4\"}");
+                donwnloadFromUrl(PDARTILHARIA, getString(R.string.url_pdartilharia), "");
 
-                    //donwnloadFromUrl(SDTABELA, getString(R.string.url_sdtabela), "");
-                    //donwnloadFromUrl(SDARTILHARIA, getString(R.string.url_sdartilharia), "{\"id\": \"3\"}");
-                    //donwnloadFromUrl(SDCLASSIFICACAO, getString(R.string.url_sdclassificacao), "{\"id\": \"3\"}");
-                    //donwnloadFromUrl(PDCLASSIFICACAOBOLAO, getString(R.string.url_pdclassificacaobolao), "");
-                    //donwnloadFromUrl(SDCLASSIFICACAOBOLAO, getString(R.string.url_sdclassificacaobolao), "");
-                }
+                donwnloadFromUrl(CLASSIFICACAO_A, getString(R.string.url_pdclassificacao_A), "{\"id\": \"1\"}");
+                donwnloadFromUrl(CLASSIFICACAO_B, getString(R.string.url_pdclassificacao_B), "{\"id\": \"2\"}");
+                donwnloadFromUrl(CLASSIFICACAO_C, getString(R.string.url_pdclassificacao_C), "{\"id\": \"3\"}");
+                donwnloadFromUrl(CLASSIFICACAO_D, getString(R.string.url_pdclassificacao_D), "{\"id\": \"4\"}");
+
+                //donwnloadFromUrl(SDTABELA, getString(R.string.url_sdtabela), "");
+                //donwnloadFromUrl(SDARTILHARIA, getString(R.string.url_sdartilharia), "{\"id\": \"3\"}");
+                //donwnloadFromUrl(SDCLASSIFICACAO, getString(R.string.url_sdclassificacao), "{\"id\": \"3\"}");
+                //donwnloadFromUrl(PDCLASSIFICACAOBOLAO, getString(R.string.url_pdclassificacaobolao), "");
+                //donwnloadFromUrl(SDCLASSIFICACAOBOLAO, getString(R.string.url_sdclassificacaobolao), "");
             }
         } catch (Exception ex) {
             Log.i(TAG, "Não foi possível atualizar  base de dados." + ex.getMessage());
@@ -236,7 +235,8 @@ public class MainActivity extends AppCompatActivity
                 public void onClick(View v) {
                     startarActivityHelp("primeira", "sobre");
                 }
-            }); txtAjuda.setOnClickListener(new View.OnClickListener() {
+            });
+            txtAjuda.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     startarActivityHelp("primeira", "sobre");
@@ -247,6 +247,7 @@ public class MainActivity extends AppCompatActivity
             Log.i(MainActivity.TAG, "Erro: executarAcoes MainActivity: " + ex.getMessage());
         }
     }
+
     private void startarActivityHelp(String divisao, String funcionalidade) {
         try {
             Intent intent = new Intent(this, SobreActivity.class);
@@ -257,6 +258,7 @@ public class MainActivity extends AppCompatActivity
             Log.i(MainActivity.TAG, "Erro: startarActivityHelp PrimeiraDivisao: " + ex.getMessage());
         }
     }
+
     private void startarActivity(String divisao) {
         try {
             Intent intent = new Intent(this, PrimeiraDivisaoActivity.class);
@@ -289,6 +291,7 @@ public class MainActivity extends AppCompatActivity
 
     private void donwnloadFromUrl(final String nomeJsonParam, String urlJson, final String param) {
         (new AsyncTask<String, Void, String>() {
+
             ProgressDialog progressDialog;
 
             @Override

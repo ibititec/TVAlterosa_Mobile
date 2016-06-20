@@ -78,5 +78,7 @@
             ]]>
     </string>
     <string name="title_activity_grupos">Partidas por Rodada</string>
-    <string name="title_activity_equipes">EquipesActivity</string>
+    <string name="title_activity_equipes">Chaves</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_equipes_image">Chave</string>
 </resources>

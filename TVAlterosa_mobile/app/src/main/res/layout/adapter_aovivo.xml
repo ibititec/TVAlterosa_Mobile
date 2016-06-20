@@ -12,7 +12,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ibititec.tvalterosa.adapter.AdapterAoVivo"
-    tools:showIn="@layout/activity_adapter_aoVivo">
+    >
 
     <TextView
         android:id="@+id/txtDataAoVivo"

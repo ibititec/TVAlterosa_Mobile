@@ -78,8 +78,8 @@ public class AdapterRodada extends BaseAdapter {
             txtCampo.setText("ESTÁDIO: " + rodadaObj.getCampo().toUpperCase());
             txtHrJogo1.setText("HORÁRIO: " + rodadaObj.getHoraJogo1().toUpperCase());
 
-            txtNomeTimeMandante.setText(rodadaObj.getNomeTimeMandante().toUpperCase());
-            txtNomeTimeVisitante.setText(rodadaObj.getNomeTimeVisitante().toUpperCase());
+            txtNomeTimeMandante.setText(rodadaObj.getPartida1().getTimeMandante().toUpperCase());
+            txtNomeTimeVisitante.setText(rodadaObj.getPartida1().getTimeVisitante().toUpperCase());
 
             if(position== rodadaList.size()-1) {
                 layout.setPadding(16, 16, 16, 150);

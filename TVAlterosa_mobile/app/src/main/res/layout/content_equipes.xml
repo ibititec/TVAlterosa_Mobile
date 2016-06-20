@@ -4,10 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="30dp"
+    android:paddingBottom="16dp"
+    android:paddingTop="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ibititec.tvalterosa.GruposActivity"
-    tools:showIn="@layout/activity_grupos"
+    tools:showIn="@layout/activity_equipes"
     android:background="@drawable/fundo">
 
     <LinearLayout
@@ -35,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/arrow" />
+                android:src="@drawable/ic_navigate_next_white_24dp" />
         </RelativeLayout>
 
         <View
@@ -63,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/arrow" />
+                android:src="@drawable/ic_navigate_next_white_24dp" />
         </RelativeLayout>
 
         <View
@@ -91,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/arrow" />
+                android:src="@drawable/ic_navigate_next_white_24dp" />
         </RelativeLayout>
 
         <View
@@ -119,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/arrow" />
+                android:src="@drawable/ic_navigate_next_white_24dp" />
         </RelativeLayout>
 
     </LinearLayout>

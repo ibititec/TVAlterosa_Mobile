@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/fundo"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingLeft="16dp"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ibititec.tvalterosa.PrimeiraDivisaoTabelaActivity"
@@ -27,12 +27,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingBottom="20dp"
+                android:paddingBottom="10dp"
                 android:visibility="gone">
 
                 <TextView
                     android:id="@+id/txtNome"
                     android:layout_width="150dp"
+                    android:textColor="@color/White"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:text="NOME"
@@ -41,6 +42,7 @@
                 <TextView
                     android:id="@+id/txtGols"
                     android:layout_width="63dp"
+                    android:textColor="@color/White"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right"
                     android:text="GOLS"
@@ -49,6 +51,7 @@
                 <TextView
                     android:id="@+id/txtTime2"
                     android:layout_width="93dp"
+                    android:textColor="@color/White"
                     android:layout_height="match_parent"
                     android:layout_gravity="right"
                     android:text="TIME"
@@ -60,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingBottom="20dp"
+                android:paddingBottom="10dp"
                 android:visibility="gone"
                 android:weightSum="1">
 
@@ -83,7 +86,7 @@
                     android:textSize="20dp" />
                 <TextView
                     android:id="@+id/txtVitoria"
-                    android:layout_width="30dp"
+                    android:layout_width="25dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="right"
                     android:text="V"
@@ -103,7 +106,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:paddingBottom="20dp">
+                android:paddingBottom="10dp">
 
                 <ListView
                     android:id="@+id/listview_primeira_tabela"
