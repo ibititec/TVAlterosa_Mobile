@@ -91,10 +91,11 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         try {
-            Intent intent = new Intent();
+            Intent intent = new Intent(this,MainActivity.class);
             intent.putExtra("divisao", divisao);
+            intent.putExtra("atualizar", "nao");
             // add data to Intent
-            setResult(PrimeiraDivisaoTabelaActivity.RESULT_OK, intent);
+           // setResult(PrimeiraDivisaoActivity.RESULT_OK, intent);
             super.onBackPressed();
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: onBackPressed PrimeiraDivisao: " + ex.getMessage());
@@ -104,7 +105,7 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
     private void executarAcoes() {
         try {
             if (divisao.equals("primeira")) {
-                this.setTitle("Copa TV Alterosa");
+                this.setTitle("Copa Alterosa Sub20");
             } else {
                 this.setTitle("Segunda Divisão");
 
@@ -174,7 +175,7 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
             txtClassificacao.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    startarActivity(divisao, "classificacao");
+                    startarActivityEquipes(divisao, "classificacao");
                 }
             });
 

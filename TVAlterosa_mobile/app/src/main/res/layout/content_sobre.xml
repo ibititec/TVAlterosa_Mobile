@@ -35,6 +35,7 @@
             android:layout_centerVertical="true"
             android:text="Organização da competição   Marcelo Enes - (032) 99982-8528   marceloenes4@gmail.com"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="17sp"
             android:textColor="@color/White" />
         <ImageView
             android:layout_width="match_parent"
@@ -50,6 +51,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignRight="@+id/textView12"
             android:layout_below="@+id/textView10"
+            android:textSize="17sp"
             android:text="Design - Osvaldo Machado   (032) 98887-4045   odgmidia@gmail.com"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/White" />
@@ -61,6 +63,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView9"
+            android:textSize="20sp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/White" />
 
@@ -77,7 +80,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/textView8"
-            android:text="Empresa de desenvolvimento de software responsável pelo desenvolvimento do aplicativo - Tel: (032) - 988213243."
+            android:textSize="17sp"
+            android:text="Ibititec - João Celson (032) - 988213243 - Desenvolvedor do aplicativo."
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_weight="0.68"
             android:textColor="@color/White" />

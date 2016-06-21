@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     //DECLARACAO DOS OBJETOS DE TELA
     private ImageButton btnPrimeiraDivisao, btnSegundaDivisao, btnNoticias, btnAjuda;
     private TextView txtPrimeiraDivisao, txtSegundaDivisao, txtNoticias, txtAjuda;
+    private String atualizar;
     // private ProgressDialog progressDialog;
 
     //CONSTANTES NOME DO JSON NA BASE DE DADOS
@@ -78,7 +79,14 @@ public class MainActivity extends AppCompatActivity
         txtNoticias = (TextView) findViewById(R.id.txtNoticias);
         txtAjuda = (TextView) findViewById(R.id.txtHelp);
 
+        this.setTitle("Copa Alterosa SUB 20");
+        //lerIntent();
         Fresco.initialize(this);
+        PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit()
+                .putString("atualizacao.json", "sim")
+                .apply();
+
+        lerIntent();
     }
 
     private void iniciarAppodeal() {
@@ -90,38 +98,49 @@ public class MainActivity extends AppCompatActivity
         super.onResume();
         //METODOS DOS CLICKS
         executarAcoes();
-
         atualizarBaseDados(false);
         AnalyticsApplication.enviarGoogleAnalitcs(this);
         iniciarAppodeal();
     }
 
-    private void atualizarBaseDados(boolean atualizar) {
+    private void lerIntent() {
+        Intent intent = getIntent();
+        atualizar = intent.getStringExtra("atualizar");
+        atualizar = JsonHelper.leJsonBancoLocal("atualizacao", this);
+    }
+
+    private void atualizarBaseDados(boolean manual) {
         try {
+            atualizar = JsonHelper.leJsonBancoLocal("atualizacao", this);
             //INCLUIR LOGICA PARA ATUALIZACAO AUTOMATICA
+            if (!atualizar.equals("nao") || manual) {
 
+                PreferenceManager.getDefaultSharedPreferences(MainActivity.this).edit()
+                        .putString("atualizacao.json", "nao")
+                        .apply();
 
-            if (!HttpHelper.existeConexao(this)) {
-                exibirMensagem();
-                Log.i(TAG, "Sem conexão com a internet.");
-            } else {
-                donwnloadFromUrl(TABELA_CHAVE_A, getString(R.string.url_pdtabela_A), "{\"id\": \"1\"}");
-                donwnloadFromUrl(TABELA_CHAVE_B, getString(R.string.url_pdtabela_B), "{\"id\": \"2\"}");
-                donwnloadFromUrl(TABELA_CHAVE_C, getString(R.string.url_pdtabela_C), "{\"id\": \"3\"}");
-                donwnloadFromUrl(TABELA_CHAVE_D, getString(R.string.url_pdtabela_D), "{\"id\": \"4\"}");
+                if (!HttpHelper.existeConexao(this)) {
+                    exibirMensagem();
+                    Log.i(TAG, "Sem conexão com a internet.");
+                } else {
+                    donwnloadFromUrl(TABELA_CHAVE_A, getString(R.string.url_pdtabela_A), "{\"id\": \"1\"}");
+                    donwnloadFromUrl(TABELA_CHAVE_B, getString(R.string.url_pdtabela_B), "{\"id\": \"2\"}");
+                    donwnloadFromUrl(TABELA_CHAVE_C, getString(R.string.url_pdtabela_C), "{\"id\": \"3\"}");
+                    donwnloadFromUrl(TABELA_CHAVE_D, getString(R.string.url_pdtabela_D), "{\"id\": \"4\"}");
 
-                donwnloadFromUrl(PDARTILHARIA, getString(R.string.url_pdartilharia), "");
+                    donwnloadFromUrl(PDARTILHARIA, getString(R.string.url_pdartilharia), "");
 
-                donwnloadFromUrl(CLASSIFICACAO_A, getString(R.string.url_pdclassificacao_A), "{\"id\": \"1\"}");
-                donwnloadFromUrl(CLASSIFICACAO_B, getString(R.string.url_pdclassificacao_B), "{\"id\": \"2\"}");
-                donwnloadFromUrl(CLASSIFICACAO_C, getString(R.string.url_pdclassificacao_C), "{\"id\": \"3\"}");
-                donwnloadFromUrl(CLASSIFICACAO_D, getString(R.string.url_pdclassificacao_D), "{\"id\": \"4\"}");
+                    donwnloadFromUrl(CLASSIFICACAO_A, getString(R.string.url_pdclassificacao_A), "{\"id\": \"1\"}");
+                    donwnloadFromUrl(CLASSIFICACAO_B, getString(R.string.url_pdclassificacao_B), "{\"id\": \"2\"}");
+                    donwnloadFromUrl(CLASSIFICACAO_C, getString(R.string.url_pdclassificacao_C), "{\"id\": \"3\"}");
+                    donwnloadFromUrl(CLASSIFICACAO_D, getString(R.string.url_pdclassificacao_D), "{\"id\": \"4\"}");
 
-                //donwnloadFromUrl(SDTABELA, getString(R.string.url_sdtabela), "");
-                //donwnloadFromUrl(SDARTILHARIA, getString(R.string.url_sdartilharia), "{\"id\": \"3\"}");
-                //donwnloadFromUrl(SDCLASSIFICACAO, getString(R.string.url_sdclassificacao), "{\"id\": \"3\"}");
-                //donwnloadFromUrl(PDCLASSIFICACAOBOLAO, getString(R.string.url_pdclassificacaobolao), "");
-                //donwnloadFromUrl(SDCLASSIFICACAOBOLAO, getString(R.string.url_sdclassificacaobolao), "");
+                    //donwnloadFromUrl(SDTABELA, getString(R.string.url_sdtabela), "");
+                    //donwnloadFromUrl(SDARTILHARIA, getString(R.string.url_sdartilharia), "{\"id\": \"3\"}");
+                    //donwnloadFromUrl(SDCLASSIFICACAO, getString(R.string.url_sdclassificacao), "{\"id\": \"3\"}");
+                    //donwnloadFromUrl(PDCLASSIFICACAOBOLAO, getString(R.string.url_pdclassificacaobolao), "");
+                    //donwnloadFromUrl(SDCLASSIFICACAOBOLAO, getString(R.string.url_sdclassificacaobolao), "");
+                }
             }
         } catch (Exception ex) {
             Log.i(TAG, "Não foi possível atualizar  base de dados." + ex.getMessage());
@@ -263,6 +282,8 @@ public class MainActivity extends AppCompatActivity
         try {
             Intent intent = new Intent(this, PrimeiraDivisaoActivity.class);
             intent.putExtra("divisao", divisao);
+
+
             startActivity(intent);
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: statarActivity MainActivity: " + ex.getMessage());

@@ -4,7 +4,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_primeira_divisao">SUB 20</string>
+    <string name="title_activity_primeira_divisao">Copa Alterosa Sub20</string>
     <string name="title_activity_primeira_divisao_tabela">Primeira Divisao Tabela</string>
     <string name="url_pdtabela_A">http://52.37.37.207:98/Admin/Partida/ObterTabelaJson</string>
     <string name="url_pdtabela_B">http://52.37.37.207:98/Admin/Partida/ObterTabelaJson</string>

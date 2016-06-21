@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -38,6 +39,31 @@ public class EquipesActivity extends AppCompatActivity {
             funcionalidade = intent.getStringExtra("funcionalidade");
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: lerIntent PrimeiraDivisaoTabela: " + ex.getMessage());
+        }
+    }
+
+    @Override
+    public void onResume() {
+        try {
+            super.onResume();
+            lerIntent();
+//        AnalyticsApplication.enviarGoogleAnalitcs(this);
+
+        } catch (Exception ex) {
+            Log.i(MainActivity.TAG, "Erro: onResume PrimeiraDivisao : " + ex.getMessage());
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        try {
+            Intent intent = new Intent();
+            intent.putExtra("divisao", divisao);
+            // add data to Intent
+            setResult(PrimeiraDivisaoActivity.RESULT_OK, intent);
+            super.onBackPressed();
+        } catch (Exception ex) {
+            Log.i(MainActivity.TAG, "Erro: onBackPressed PrimeiraDivisao: " + ex.getMessage());
         }
     }
 
@@ -171,7 +197,8 @@ public class EquipesActivity extends AppCompatActivity {
             Log.i(MainActivity.TAG, "Erro: Startar Activity Grupos: " + ex.getMessage());
         }
     }
-     private void startaActivityClassficacao(String a) {
+
+    private void startaActivityClassficacao(String a) {
         try {
             Intent intent = new Intent(this, PrimeiraDivisaoTabelaActivity.class);
             intent.putExtra("chave", a);
@@ -194,6 +221,7 @@ public class EquipesActivity extends AppCompatActivity {
             Log.i(MainActivity.TAG, "Erro: Startar Activity Grupos: " + ex.getMessage());
         }
     }
+
     private void startaActivity(String a) {
         try {
             Intent intent = new Intent(this, PrimeiraDivisaoTabelaActivity.class);
@@ -218,5 +246,20 @@ public class EquipesActivity extends AppCompatActivity {
         imgChaveD = (ImageView) findViewById(R.id.btnChaveD);
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        onBackPressed();
+        //noinspection SimplifiableIfStatement
+//        if (id == R.id.home) {
+//            onBackPressed();
+//            return true;
+//        }
+        return true;
     }
 }

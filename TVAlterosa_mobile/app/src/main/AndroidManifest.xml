@@ -334,7 +334,7 @@
         <activity
             android:name=".EquipesImageActivity"
             android:label="@string/title_activity_equipes_image"
-            android:parentActivityName=".PrimeiraDivisaoActivity"
+            android:parentActivityName=".EquipesActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

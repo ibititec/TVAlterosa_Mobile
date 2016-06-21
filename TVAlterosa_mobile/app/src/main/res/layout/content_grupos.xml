@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,11 +7,15 @@
     android:paddingTop="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingBottom="30dp"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ibititec.tvalterosa.GruposActivity"
     tools:showIn="@layout/activity_grupos"
     android:background="@drawable/fundo">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="55dp">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -181,4 +185,11 @@
                 android:src="@drawable/ic_navigate_next_white_24dp" />
         </RelativeLayout>
     </LinearLayout>
-</android.support.v4.widget.NestedScrollView>
+    </android.support.v4.widget.NestedScrollView>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:src="@drawable/propaganda" />
+</android.support.design.widget.CoordinatorLayout>
