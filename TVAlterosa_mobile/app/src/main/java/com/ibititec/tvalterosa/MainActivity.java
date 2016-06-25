@@ -134,12 +134,6 @@ public class MainActivity extends AppCompatActivity
                     donwnloadFromUrl(CLASSIFICACAO_B, getString(R.string.url_pdclassificacao_B), "{\"id\": \"2\"}");
                     donwnloadFromUrl(CLASSIFICACAO_C, getString(R.string.url_pdclassificacao_C), "{\"id\": \"3\"}");
                     donwnloadFromUrl(CLASSIFICACAO_D, getString(R.string.url_pdclassificacao_D), "{\"id\": \"4\"}");
-
-                    //donwnloadFromUrl(SDTABELA, getString(R.string.url_sdtabela), "");
-                    //donwnloadFromUrl(SDARTILHARIA, getString(R.string.url_sdartilharia), "{\"id\": \"3\"}");
-                    //donwnloadFromUrl(SDCLASSIFICACAO, getString(R.string.url_sdclassificacao), "{\"id\": \"3\"}");
-                    //donwnloadFromUrl(PDCLASSIFICACAOBOLAO, getString(R.string.url_pdclassificacaobolao), "");
-                    //donwnloadFromUrl(SDCLASSIFICACAOBOLAO, getString(R.string.url_sdclassificacaobolao), "");
                 }
             }
         } catch (Exception ex) {
@@ -349,7 +343,7 @@ public class MainActivity extends AppCompatActivity
 
                 progressDialog.dismiss();
 
-                if (json == null) {
+                if (json == null || json.equals("")) {
                     //Log.w(TAG, "JSON veio nulo!");
                     return;
                 }

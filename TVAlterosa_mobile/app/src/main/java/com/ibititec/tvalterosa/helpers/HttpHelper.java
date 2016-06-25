@@ -43,8 +43,8 @@ public class HttpHelper {
             url = new URL(requestURL);
 
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setReadTimeout(15000);
-            conn.setConnectTimeout(15000);
+            conn.setReadTimeout(10000);
+            conn.setConnectTimeout(10000);
             conn.setRequestMethod("POST");
             conn.setRequestProperty("content-type", "application/json; charset=utf-8");
             conn.setDoInput(true);
