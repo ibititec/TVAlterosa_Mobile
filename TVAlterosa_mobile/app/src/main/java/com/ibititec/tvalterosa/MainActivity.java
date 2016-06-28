@@ -14,10 +14,14 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.appodeal.ads.Appodeal;
@@ -61,6 +65,7 @@ public class MainActivity extends AppCompatActivity
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         //AS DUAS LINHAS ABAIXO DESABILITAR A BARRA DE MENU
         toggle.setDrawerIndicatorEnabled(false);
         //toggle.syncState();
@@ -154,7 +159,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        //getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -357,7 +362,6 @@ public class MainActivity extends AppCompatActivity
 
     private void exibirMensagem() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
         //define o titulo
         builder.setTitle("Atenção");
         //define a mensagem

@@ -19,6 +19,7 @@ import android.widget.ListView;
 
 import com.appodeal.ads.Appodeal;
 import com.ibititec.tvalterosa.MainActivity;
+import com.ibititec.tvalterosa.PrimeiraDivisaoActivity;
 import com.ibititec.tvalterosa.R;
 import com.ibititec.tvalterosa.adapter.AdapterNoticia;
 import com.ibititec.tvalterosa.helpers.HttpHelper;
@@ -42,6 +43,7 @@ public class FeedNoticiasActivity extends AppCompatActivity {
             setContentView(R.layout.activity_feed_noticias);
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
             lerIntent();
             carregarComponentes();
@@ -51,6 +53,18 @@ public class FeedNoticiasActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
             Log.e(MainActivity.TAG, "Erro onCreate FeedNoticias" + e.getMessage());
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        try {
+            Intent intent = new Intent();
+            // add data to Intent
+            setResult(PrimeiraDivisaoActivity.RESULT_OK, intent);
+            super.onBackPressed();
+        } catch (Exception ex) {
+            Log.i(MainActivity.TAG, "Erro: onBackPressed FeedNoticiasActivity: " + ex.getMessage());
         }
     }
 
@@ -270,7 +284,8 @@ public class FeedNoticiasActivity extends AppCompatActivity {
                 donwnloadFromUrl("feednoticias", getString(R.string.url_feed_noticias), "");
                 return true;
             default:
-                return super.onOptionsItemSelected(item);
+                onBackPressed();
+                return true;
         }
     }
 
