@@ -198,7 +198,7 @@ public class PrimeiraDivisaoActivity extends AppCompatActivity {
     private void startarActivityProximaRodada(String divisao) {
         try {
             if (HttpHelper.existeConexao(this)) {
-                donwnloadFromUrl(MainActivity.PROXIMA_RODADA, getString(R.string.url_proximarodada), "");
+                donwnloadFromUrl(MainActivity.PROXIMA_RODADA, getString(R.string.url_classificacao_geral), "");
                 intent = new Intent(this, PrimeiraDivisaoTabelaActivity.class);
             } else {
                 exibirMensagem();

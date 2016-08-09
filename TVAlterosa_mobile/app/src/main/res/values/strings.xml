@@ -16,6 +16,13 @@
     <string name="url_pdclassificacao_C">http://52.37.37.207:98/Campeonato/ObterClassificacaoJson</string>
     <string name="url_pdclassificacao_D">http://52.37.37.207:98/Campeonato/ObterClassificacaoJson</string>
 
+    <string name="url_classificacao_geral">http://52.37.37.207:98/Admin/Campeonato/ObterClassificacaoGeralJson</string>
+
+    <string name="url_quartas_ida">http://52.37.37.207:98/Admin/Partida/ObterJogosQuartasIdaJson</string>
+
+    <string name="url_quartas_volta">http://52.37.37.207:98/Admin/Partida/ObterJogosQuartasVoltaJson</string>
+
+
     <string name="url_sdtabela">http://52.37.37.207:98/Admin/Partida/ObterTabelaJsonSD</string>
     <string name="url_sdclassificacao">http://52.37.37.207:98/Campeonato/ObterClassificacaoJson</string>
     <string name="title_activity_adapter_rodada">AdapterRodada</string>

@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity
             PDJOGOSBOLAO = "pdjogosbolao", SDJOGOSBOLAO = "sdjogosbolao", USUARIO = "usuario", PDJOGOSRODADA = "pdjogosRODADA", SDJOGOSRODADA = "sdjogosRODADA",
             TABELA_CHAVE_A = "TABELA_CHAVE_A", TABELA_CHAVE_B = "TABELA_CHAVE_B", TABELA_CHAVE_C = "TABELA_CHAVE_C", TABELA_CHAVE_D = "TABELA_CHAVE_D",
             CLASSIFICACAO_A = "CLASSIFICACAO_A", CLASSIFICACAO_B = "CLASSIFICACAO_B", CLASSIFICACAO_C = "CLASSIFICACAO_C", CLASSIFICACAO_D = "CLASSIFICACAO_D",
-            PROXIMA_RODADA = "PROXIMA_RODADA";
+            PROXIMA_RODADA = "PROXIMA_RODADA", QUARTAS_FINAL_IDA = "QUARTAS_IDA", QUARTAS_VOLTA = "QUARTAS_VOLTA", SEMI_IDA = "SEMI_IDA", SEMI_VOLTA = "SEMI_VOLTA",
+            FINAL_IDA = "FINAL_IDA", FINAL_VOLTA = "FINAL_VOLTA", CLASSIFICACAO_GERAL = "CLASSIFICACA_GERAL";
 
     public static final String TAG = "CAMPEONATOLD";
     public static final String PATH_FOTOS = "http://52.37.37.207:98/Admin/Time/Image?nomeimagem=";
@@ -139,6 +140,11 @@ public class MainActivity extends AppCompatActivity
                     donwnloadFromUrl(CLASSIFICACAO_B, getString(R.string.url_pdclassificacao_B), "{\"id\": \"2\"}");
                     donwnloadFromUrl(CLASSIFICACAO_C, getString(R.string.url_pdclassificacao_C), "{\"id\": \"3\"}");
                     donwnloadFromUrl(CLASSIFICACAO_D, getString(R.string.url_pdclassificacao_D), "{\"id\": \"4\"}");
+
+
+                    donwnloadFromUrl(QUARTAS_FINAL_IDA, getString(R.string.url_quartas_ida), "");
+                    donwnloadFromUrl(QUARTAS_VOLTA, getString(R.string.url_quartas_volta), "");
+                    donwnloadFromUrl(CLASSIFICACAO_GERAL, getString(R.string.url_classificacao_geral), "");
                 }
             }
         } catch (Exception ex) {

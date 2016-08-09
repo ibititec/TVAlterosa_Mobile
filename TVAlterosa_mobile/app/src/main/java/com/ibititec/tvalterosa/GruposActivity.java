@@ -17,8 +17,8 @@ import com.appodeal.ads.Appodeal;
 
 public class GruposActivity extends AppCompatActivity {
 
-    TextView txtRodada1, txtRodada2, txtRodada3, txtRodada4, txtRodada5, txtRodada6;
-    ImageView imgChave1, imgChave2, imgChave3, imgChave4, imgChave5, imgChave6;
+    TextView txtRodada1, txtRodada2, txtRodada3, txtRodada4, txtRodada5, txtRodada6, txtQuartasIda, txtQuartasVolta;
+    ImageView imgChave1, imgChave2, imgChave3, imgChave4, imgChave5, imgChave6, imgQuartasIda, imgQuartasVolta;
 
     String divisao, funcionalidade;
 
@@ -173,6 +173,34 @@ public class GruposActivity extends AppCompatActivity {
             }
         });
 
+        txtQuartasIda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startaActivityRodada("7");
+            }
+        });
+
+        imgQuartasIda.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startaActivityRodada("7");
+            }
+        });
+
+        txtQuartasVolta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startaActivityRodada("8");
+            }
+        });
+
+        imgQuartasVolta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startaActivityRodada("8");
+            }
+        });
+
 
     }
 
@@ -227,5 +255,13 @@ public class GruposActivity extends AppCompatActivity {
         txtRodada6 = (TextView) findViewById(R.id.chave_Rodada_6);
 
         imgChave6 = (ImageView) findViewById(R.id.btnRodada_6);
+
+        txtQuartasIda = (TextView) findViewById(R.id.txt_quartas_ida);
+
+        imgQuartasIda = (ImageView) findViewById(R.id.img_quartas_ida);
+
+        txtQuartasVolta = (TextView) findViewById(R.id.txt_quartas_volta);
+
+        imgQuartasVolta = (ImageView) findViewById(R.id.img_quartas_volta);
     }
 }

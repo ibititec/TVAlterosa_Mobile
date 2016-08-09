@@ -132,6 +132,10 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
                         atualizarTabelaPorRodada(chave);
                     } else if (chave.equals(("6"))) {
                         atualizarTabelaPorRodada(chave);
+                    } else if (chave.equals(("7"))) {
+                        atualizarTabelaPorRodada(chave);
+                    } else if (chave.equals(("8"))) {
+                        atualizarTabelaPorRodada(chave);
                     }
                     break;
                 case "classificacao":
@@ -163,42 +167,65 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
 
     private void atualizarTabelaPorRodada(String rodada) {
         try {
-            this.setTitle(rodada + " ª Rodada");
-            String tabelaA = JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_A, this);
-            String tabelaB = JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_B, this);
-            String tabelaC = JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_C, this);
-            String tabelaD = JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_D, this);
 
-            List<Rodada> listRodadaA = JsonHelper.getList(tabelaA, Rodada[].class);
-            List<Rodada> listRodadaB = JsonHelper.getList(tabelaB, Rodada[].class);
-            List<Rodada> listRodadaC = JsonHelper.getList(tabelaC, Rodada[].class);
-            List<Rodada> listRodadaD = JsonHelper.getList(tabelaD, Rodada[].class);
+            if (rodada.equals("7")) {
+
+                this.setTitle("Quartas de Final IDA");
+            }
+            if (rodada.equals("8")) {
+                this.setTitle("Quartas de Final Volta");
+            }
 
             List<Rodada> listaRodadaPorRodada = new ArrayList<Rodada>();
 
-            for (Rodada rod : listRodadaA) {
-                if (rod.getNumero().equals(rodada)) {
-                    listaRodadaPorRodada.add(rod);
+            if (Integer.parseInt(rodada) < 7) {
+
+
+                this.setTitle(rodada + " ª Rodada");
+                String tabelaA = JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_A, this);
+                String tabelaB = JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_B, this);
+                String tabelaC = JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_C, this);
+                String tabelaD = JsonHelper.leJsonBancoLocal(MainActivity.TABELA_CHAVE_D, this);
+
+                List<Rodada> listRodadaA = JsonHelper.getList(tabelaA, Rodada[].class);
+                List<Rodada> listRodadaB = JsonHelper.getList(tabelaB, Rodada[].class);
+                List<Rodada> listRodadaC = JsonHelper.getList(tabelaC, Rodada[].class);
+                List<Rodada> listRodadaD = JsonHelper.getList(tabelaD, Rodada[].class);
+
+                for (Rodada rod : listRodadaA) {
+                    if (rod.getNumero().equals(rodada)) {
+                        listaRodadaPorRodada.add(rod);
+                    }
                 }
+
+                for (Rodada rod : listRodadaB) {
+                    if (rod.getNumero().equals(rodada)) {
+                        listaRodadaPorRodada.add(rod);
+                    }
+                }
+
+                for (Rodada rod : listRodadaC) {
+                    if (rod.getNumero().equals(rodada)) {
+                        listaRodadaPorRodada.add(rod);
+                    }
+                }
+
+                for (Rodada rod : listRodadaD) {
+                    if (rod.getNumero().equals(rodada)) {
+                        listaRodadaPorRodada.add(rod);
+                    }
+                }
+            } else {
+                if (Integer.parseInt(rodada) == 7) {
+                    String tabelaQuartasIda = JsonHelper.leJsonBancoLocal(MainActivity.QUARTAS_FINAL_IDA, this);
+                    listaRodadaPorRodada = JsonHelper.getList(tabelaQuartasIda, Rodada[].class);
+                } else {
+                    String tabelaQuartasVolta = JsonHelper.leJsonBancoLocal(MainActivity.QUARTAS_VOLTA, this);
+                    listaRodadaPorRodada = JsonHelper.getList(tabelaQuartasVolta, Rodada[].class);
+                }
+
             }
 
-            for (Rodada rod : listRodadaB) {
-                if (rod.getNumero().equals(rodada)) {
-                    listaRodadaPorRodada.add(rod);
-                }
-            }
-
-            for (Rodada rod : listRodadaC) {
-                if (rod.getNumero().equals(rodada)) {
-                    listaRodadaPorRodada.add(rod);
-                }
-            }
-
-            for (Rodada rod : listRodadaD) {
-                if (rod.getNumero().equals(rodada)) {
-                    listaRodadaPorRodada.add(rod);
-                }
-            }
             Collections.sort(listaRodadaPorRodada, new Comparator<Rodada>() {
                         @Override
                         public int compare(Rodada lhs, Rodada rhs) {
@@ -320,13 +347,22 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
 
     private void atualizarTabelaChaveProximaRodada() {
         try {
-            this.setTitle("Próxima Rodada");
+            cabecalhoLayout = (LinearLayout) findViewById(R.id.cabecalho_classificacao);
+            cabecalhoLayout.setVisibility(View.VISIBLE);
+            this.setTitle("Classificação Geral");
+            String tabela = JsonHelper.leJsonBancoLocal(MainActivity.CLASSIFICACAO_GERAL, this);
+            List<Classificacao> listRodada = JsonHelper.getList(tabela, Classificacao[].class);
+            AdapterClassificacao adapterRodada = new AdapterClassificacao(this, listRodada);
+            lvTabela.setAdapter(adapterRodada);
+            UIHelper.setListViewHeightBasedOnChildren(lvTabela);
+
+            /*this.setTitle("Próxima Rodada");
             String tabela = JsonHelper.leJsonBancoLocal(MainActivity.PROXIMA_RODADA, this);
             List<Rodada> listRodada = JsonHelper.getList(tabela, Rodada[].class);
             AdapterRodada adapterRodada = new AdapterRodada(this, listRodada, divisao, funcionalidade);
             lvTabela.setAdapter(adapterRodada);
             UIHelper.setListViewHeightBasedOnChildren(lvTabela);
-            verificarRodadaAtual();
+            verificarRodadaAtual();*/
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro ao preencher listView PROXIMA_RODADA: " + ex.getMessage());
         }
