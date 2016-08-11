@@ -13,7 +13,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.appodeal.ads.Appodeal;
 
 public class GruposActivity extends AppCompatActivity {
 

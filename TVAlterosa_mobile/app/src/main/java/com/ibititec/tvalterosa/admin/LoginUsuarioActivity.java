@@ -17,7 +17,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.appodeal.ads.Appodeal;
 import com.ibititec.tvalterosa.MainActivity;
 import com.ibititec.tvalterosa.R;
 import com.ibititec.tvalterosa.helpers.HttpHelper;
@@ -41,7 +40,7 @@ public class LoginUsuarioActivity extends AppCompatActivity {
             findViewByIdComponente();
             executarAcoes();
             validarUsuarioCadastrado();
-            Appodeal.show(this, Appodeal.BANNER_BOTTOM);
+
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: onCreate LoginUsuario: " + ex.getMessage());
         }

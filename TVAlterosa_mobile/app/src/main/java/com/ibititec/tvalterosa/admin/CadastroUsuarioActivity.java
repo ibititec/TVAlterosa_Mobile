@@ -16,7 +16,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.appodeal.ads.Appodeal;
+
 import com.ibititec.tvalterosa.MainActivity;
 import com.ibititec.tvalterosa.R;
 import com.ibititec.tvalterosa.helpers.HttpHelper;
@@ -42,7 +42,7 @@ public class CadastroUsuarioActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             findViewByIdComponente();
             executarAcoes();
-            Appodeal.show(this, Appodeal.BANNER_BOTTOM);
+
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: onCreate CadastroUsuario: " + ex.getMessage());
         }

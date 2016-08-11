@@ -19,7 +19,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.appodeal.ads.Appodeal;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.ibititec.tvalterosa.MainActivity;
 import com.ibititec.tvalterosa.PrimeiraDivisaoTabelaActivity;
@@ -75,7 +75,7 @@ public class PartidaTempoRealActivity extends AppCompatActivity {
 
     private void iniciarAppodeal() {
         try {
-            Appodeal.show(this, Appodeal.BANNER_BOTTOM);
+
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: iniciarAppodeal: " + ex.getMessage());
         }
@@ -112,7 +112,7 @@ public class PartidaTempoRealActivity extends AppCompatActivity {
             intent.putExtra("funcionalidade", funcionalidade);
             // add data to Intent
             setResult(PrimeiraDivisaoTabelaActivity.RESULT_OK, intent);
-            Appodeal.show(this, Appodeal.NATIVE);
+
             super.onBackPressed();
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro OnBack Classificacao : " + ex.getMessage());

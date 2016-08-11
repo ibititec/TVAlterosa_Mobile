@@ -11,7 +11,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.appodeal.ads.Appodeal;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -73,10 +72,7 @@ public class SplashActivity extends AppCompatActivity {
         //String appKey = "a7abb670bb95499ee0c535d3d8f3787704b48736d99fab89";
         //String DESENVOLCIVMENTO
         String appKey = "a7abb670bb95499ee0c535d3d8f3787704b48736d99fab8ssdsddsd9";
-        Appodeal.setBannerViewId(R.id.appodealBannerView);
-        Appodeal.initialize(this, appKey, Appodeal.INTERSTITIAL | Appodeal.BANNER | Appodeal.MREC);
-        //Appodeal.setTesting(true);
-        Appodeal.show(this, Appodeal.BANNER_BOTTOM);
+
     }
 
     @Override

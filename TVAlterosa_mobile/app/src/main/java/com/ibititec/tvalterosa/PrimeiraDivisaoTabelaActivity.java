@@ -12,7 +12,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.appodeal.ads.Appodeal;
+
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.ibititec.tvalterosa.adapter.AdapterArtilharia;
 import com.ibititec.tvalterosa.adapter.AdapterClassificacao;
@@ -73,7 +73,7 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
 
     private void iniciarAppodeal() {
         try {
-            Appodeal.show(this, Appodeal.BANNER_BOTTOM);
+
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: iniciarAppodeal: " + ex.getMessage());
         }
@@ -86,7 +86,7 @@ public class PrimeiraDivisaoTabelaActivity extends AppCompatActivity {
             intent.putExtra("divisao", divisao);
             // add data to Intent
             setResult(PrimeiraDivisaoTabelaActivity.RESULT_OK, intent);
-            Appodeal.show(this, Appodeal.NATIVE);
+
             super.onBackPressed();
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: onBackPressedPrimeiraDivisaoTabela: " + ex.getMessage());

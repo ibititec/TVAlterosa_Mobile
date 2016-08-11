@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.appodeal.ads.Appodeal;
+
 import com.ibititec.tvalterosa.MainActivity;
 import com.ibititec.tvalterosa.R;
 
@@ -41,7 +41,7 @@ public class BolaoPrincipalActivity extends AppCompatActivity {
 
     private void lerIntent() {
         try {
-            Appodeal.show(this, Appodeal.BANNER_BOTTOM);
+
             Intent intent = getIntent();
             divisao = intent.getStringExtra("divisao");
 
@@ -106,7 +106,7 @@ public class BolaoPrincipalActivity extends AppCompatActivity {
 
             // add data to Intent
             setResult(BolaoPrincipalActivity.RESULT_OK, intent);
-            Appodeal.show(this, Appodeal.NATIVE);
+
             super.onBackPressed();
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: onBackPressedPrimeiraDivisaoTabela: " + ex.getMessage());

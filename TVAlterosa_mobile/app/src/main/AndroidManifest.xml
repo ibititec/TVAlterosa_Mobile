@@ -73,7 +73,7 @@
         <!--
         <uses-feature android:name="android.hardware.location" android:required="false" />
         <uses-feature android:name="android.hardware.location.network" android:required="false" />
-        -->
+
 
         <meta-data
             android:name="com.appodeal.framework"
@@ -152,9 +152,8 @@
         <activity
             android:name="com.appodeal.ads.networks.SpotXActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <!-- suppress AndroidDomInspection -->
-        <activity
-            android:name="com.facebook.ads.InterstitialAdActivity"
+
+        <activity android:name="com.facebook.ads.InterstitialAdActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity
             android:name="com.unity3d.ads.android.view.UnityAdsFullscreenActivity"
@@ -167,36 +166,36 @@
             android:hardwareAccelerated="true"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
 
-        <!-- suppress AndroidDomInspection -->
+
         <activity
             android:name="com.jirbo.adcolony.AdColonyOverlay"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
-        <!-- suppress AndroidDomInspection -->
+
         <activity
             android:name="com.jirbo.adcolony.AdColonyFullscreen"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
-        <!-- suppress AndroidDomInspection -->
+
         <activity
             android:name="com.jirbo.adcolony.AdColonyBrowser"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
-        <!-- suppress AndroidDomInspection -->
+
         <activity
             android:name="com.vungle.publisher.FullScreenAdActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-        <!-- suppress AndroidDomInspection -->
+
         <activity
             android:name="com.startapp.android.publish.list3d.List3DActivity"
             android:theme="@android:style/Theme" />
-        <!-- suppress AndroidDomInspection -->
+
         <activity
             android:name="com.startapp.android.publish.OverlayActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@android:style/Theme.Translucent" />
-        <!-- suppress AndroidDomInspection -->
+
         <activity
             android:name="com.startapp.android.publish.FullScreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -228,7 +227,7 @@
                 <action android:name="com.android.vending.INSTALL_REFERRER" />
             </intent-filter>
         </receiver>
-        <!-- suppress AndroidDomInspection -->
+
         <activity
             android:name="com.yandex.mobile.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
@@ -251,12 +250,11 @@
             android:name="com.inmobi.signals.activityrecognition.ActivityRecognitionManager"
             android:enabled="true" />
 
-        <!-- suppress AndroidDomInspection -->
         <activity
             android:name="com.flurry.android.FlurryFullscreenTakeoverActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize" />
 
-        <!-- FIM APPODEAL -->
+       FIM APPODEAL -->
 
         <activity
             android:name=".PrimeiraDivisaoActivity"

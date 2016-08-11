@@ -14,7 +14,6 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import com.appodeal.ads.Appodeal;
 import com.ibititec.tvalterosa.MainActivity;
 import com.ibititec.tvalterosa.R;
 import com.ibititec.tvalterosa.adapter.AdapterJogosBolao;
@@ -73,7 +72,7 @@ public class PalpiteActivity extends AppCompatActivity {
 
     private void iniciarAppodeal() {
         try {
-            Appodeal.show(this, Appodeal.BANNER_TOP);
+
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: iniciarAppodeal: " + ex.getMessage());
         }
@@ -87,7 +86,7 @@ public class PalpiteActivity extends AppCompatActivity {
 
             // add data to Intent
             setResult(BolaoPrincipalActivity.RESULT_OK, intent);
-            Appodeal.show(this, Appodeal.NATIVE);
+
             super.onBackPressed();
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro onBackPressed Palpite: " + ex.getMessage());

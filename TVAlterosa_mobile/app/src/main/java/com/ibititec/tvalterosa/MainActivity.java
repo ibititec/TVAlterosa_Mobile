@@ -24,7 +24,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.appodeal.ads.Appodeal;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.ibititec.tvalterosa.helpers.HttpHelper;
 import com.ibititec.tvalterosa.helpers.JsonHelper;
@@ -96,7 +95,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void iniciarAppodeal() {
-        Appodeal.show(this, Appodeal.BANNER_BOTTOM);
     }
 
     @Override

@@ -18,7 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.appodeal.ads.Appodeal;
+
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.ibititec.tvalterosa.MainActivity;
 import com.ibititec.tvalterosa.R;
@@ -61,7 +61,7 @@ public class PalpitePorJogoActivity extends AppCompatActivity {
     }
     private void iniciarAppodeal() {
         try {
-            Appodeal.show(this, Appodeal.BANNER);
+
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: iniciarAppodeal: " + ex.getMessage());
         }
@@ -74,7 +74,7 @@ public class PalpitePorJogoActivity extends AppCompatActivity {
 
             // add data to Intent
             setResult(PalpitePorJogoActivity.RESULT_OK, intent);
-            Appodeal.show(this, Appodeal.NATIVE);
+
             super.onBackPressed();
         } catch (Exception ex) {
             Log.i(MainActivity.TAG, "Erro: onBackPressedPrimeiraDivisaoTabela: " + ex.getMessage());

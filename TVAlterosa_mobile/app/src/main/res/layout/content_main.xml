@@ -75,12 +75,6 @@
                     android:paddingLeft="20dp"
                     android:textColor="@color/White" />
 
-                <com.appodeal.ads.BannerView
-                    android:id="@+id/appodealBannerView"
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    android:visibility="gone" />
-
             </LinearLayout>
 
             <LinearLayout

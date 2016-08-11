@@ -17,7 +17,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.appodeal.ads.Appodeal;
+
 import com.ibititec.tvalterosa.MainActivity;
 import com.ibititec.tvalterosa.PrimeiraDivisaoActivity;
 import com.ibititec.tvalterosa.R;
@@ -48,7 +48,7 @@ public class FeedNoticiasActivity extends AppCompatActivity {
             lerIntent();
             carregarComponentes();
             executarAcoes();
-            Appodeal.show(this, Appodeal.BANNER_BOTTOM);
+
             donwnloadFromUrl("feedNoticias", getString(R.string.url_feed_noticias), "");
         } catch (Exception e) {
             e.printStackTrace();

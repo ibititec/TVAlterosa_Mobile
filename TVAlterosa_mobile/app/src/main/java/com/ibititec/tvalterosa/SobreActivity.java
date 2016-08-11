@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.appodeal.ads.Appodeal;
 import com.ibititec.tvalterosa.util.AnalyticsApplication;
 
 public class SobreActivity extends AppCompatActivity {
@@ -20,10 +19,10 @@ public class SobreActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         lerIntent();
-        Appodeal.show(this, Appodeal.BANNER_BOTTOM);
+
     }
     private void iniciarAppodeal() {
-        Appodeal.show(this, Appodeal.BANNER_BOTTOM);
+
     }
 
     @Override
